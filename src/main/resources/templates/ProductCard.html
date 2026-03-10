@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Ковка по металлу</title>
+    <!-- Подключаем Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+    <link rel="shortcut icon" th:href="@{/img/Логотип.png}">
+    <link th:rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@1,300&family=Monomakh&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap" rel="stylesheet">
+</head>
+<body >
+<nav class="navbar navbar-expand ">
+    <div class="container-fluid px-3">
+        <!-- Логотип -->
+        <a class="navbar-brand class" href="/">
+            <img src="/img/Логотип.png" class="log" alt="Логотип">
+            Престиж- ковка
+        </a>
+
+        <!-- Кнопка-переключатель для мобильных -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Основное меню и поиск -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-0">
+                <li class="nav-item d-none d-md-block">
+                    <a class="nav-link ekb " aria-current="page" href="#">
+                        <img src="/img/Навигация.png" class="ekbtel" alt="Логотип"  style="border-radius: 100%">
+                        г. Лиски, ул. Чапаева 37
+                        </br>
+                        prestige_forging83@mail.ru
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a class="nav-link ekb d-none d-sm-block " aria-current="page" href="#" >
+                        <img src="/img/телефон%20(2).png"  class="ekbtel" alt="Логотип"  style="border-radius: 100%">
+                        + 7-900-924-46-46
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ekb " aria-current="page" href="#">
+                        <a href="https://t.me/username" style="text-decoration: none;">
+                            <img src="/img/телеграмм.png" class="mes" alt="Логотип"  >
+                        </a>
+                        <a style="text-decoration: none;">
+                            <img src="/img/Почта.png" class="mes1" alt="Логотип" >
+                        </a>
+                        <a style="text-decoration: none;">
+                            <img src="/img/VK.png" class="mes1" alt="Логотип" >
+                        </a>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="thin-line"></div>
+<nav class="navbar two navbar-expand ">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" >
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item katalog dropdown d-md-none">
+                    <a
+                            class="nav-link active dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            style="color: white"
+                    >
+                        ГЛАВНОЕ
+                    </a>
+                    <ul class="dropdown-menu two-columns" style="background-color: #1a1a1a">
+                        <li>
+                            <a class="dropdown-item "
+                               href="/KovkaNaZakaz"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >КОВКА НА ЗАКАЗ
+                            </a>
+                            <a class="dropdown-item " sec:authorize="hasRole('ROLE_ADMIN')"
+                               href="#"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >БЛОГ
+                            </a>
+                            <a class="dropdown-item "
+                               href="/WholesaleBuyer"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >ОПТОВЫМ ПОКУПАТЕЛЯМ
+                            </a>
+                        </li>
+                        <!-- остальные пункты -->
+                    </ul>
+                </li>
+                <li class="nav-item katalog dropdown">
+                    <a
+                            class="nav-link active dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            style="color: white"
+                    >
+                        КАТАЛОГ
+                    </a>
+                    <ul class="dropdown-menu two-columns" style="background-color: #1a1a1a">
+                        <li>
+                            <a class="dropdown-item"
+                               href="/VorotaKatalog"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >КОВАНЫЕ ВОРОТА
+                            </a>
+                            <a class="dropdown-item"
+                               href="/KalitkaKatalog"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >КОВАНЫЕ КАЛИТКИ
+                            </a>
+                            <a class="dropdown-item"
+                               href="/BesedkaKatalog"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >КОВАНЫЕ БЕСЕДКИ
+                            </a>
+                            <a class="dropdown-item"
+                               href="/PerilaKatalog"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >КОВАНЫЕ ПЕРИЛА
+                            </a>
+                            <a class="dropdown-item"
+                               href="/ReshotkaKatalog"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >КОВАНЫЕ РЕШЕТКИ
+                            </a>
+                            <a class="dropdown-item"
+                               href="/KaheliKatalog"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >КОВАНЫЕ КАЧЕЛИ
+                            </a>
+                            <a class="dropdown-item"
+                               href="/MostiKatalog"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >МОСТЫ
+                            </a>
+                            <a class="dropdown-item"
+                               href="/Katalog"
+                               style="color: red; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >ПОСМОТРЕТЬ ВСЕ
+                            </a>
+                        </li>
+                        <!-- остальные пункты -->
+                    </ul>
+                </li>
+                <li class="nav-item  ">
+                    <a class="nav-link katalog d-none d-sm-block  " aria-current="page" href="/portfolio" >ПОРТФОЛИО</a>
+                </li>
+                <li class="nav-item  ">
+                    <a class="nav-link katalog d-none d-md-block " aria-current="page" href="/KovkaNaZakaz"  >КОВКА НА ЗАКАЗ</a>
+                </li>
+                <li class="nav-item d-none d-md-block">
+                    <a  class="nav-link katalog " aria-current="page" href="/WholesaleBuyer"  >ОПТОВЫМ ПОКУПАТЕЛЯМ</a>
+                </li>
+                <li class="nav-item d-none d-md-block" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link katalog " aria-current="page" href="#"  >БЛОГ</a>
+                </li>
+                <li class="nav-item " style="margin-right: 25px">
+                    <a class="nav-link katalog " aria-current="page" href="/Contacts">КОНТАКТЫ</a>
+                </li>
+            </ul>
+            <form th:action="@{/searchByTitle}" class="d-flex form" role="search" method="get">
+                <input class="form-control form me-2"
+                       type="search"
+                       placeholder="Поиск"
+                       aria-label="Поиск"
+                       name="title">
+                <button class="btn btn-outline-success form" type="submit">Поиск</button>
+            </form>
+
+        </div>
+    </div>
+</nav>
+<!-- Карточка товара -->
+<br>
+<div class="container-fluid py-5 bg-light" th:object="${product.id}">
+    <div class="row align-items-center g-5"  >
+        <!-- Фотография товара слева -->
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+            <div class="product-image-container position-relative overflow-hidden rounded-4 shadow-lg" style="width: 480px; height: 380px;">
+                <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light"
+                     data-mdb-ripple-color="light">
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img th:src="@{/images/{id}(id=${product.images[0].id})}" class="d-block w-100" alt="600">
+                            </div>
+                            <div class="carousel-item">
+                                <img th:src="@{/images/{id}(id=${product.images[1].id})}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img th:src="@{/images/{id}(id=${product.images[2].id})}" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev btn-red" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" style="background-color: rgba(200,35,51,0.67); border-radius: 100%;" aria-hidden="true"></span>
+                            <span class="visually-hidden" >Предыдущий</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" style="background-color: rgba(200,35,51,0.67); border-radius: 100%;" aria-hidden="true"></span>
+                            <span class="visually-hidden">Следующий</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="image-overlay position-absolute top-0 start-0 w-100 h-100  opacity-0 transition-opacity duration-300"></div>
+                <div class="image-hover-info position-absolute bottom-0 start-0 end-0 p-4  opacity-0 transition-opacity duration-300">
+                    <h5 class=" mb-1">Ажурные кованые ворота</h5>
+                    <p class="mb-0 fs-6">Ручная ковка. Гарантия 5 лет</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Описание справа -->
+        <div class="col-12 col-md-6">
+            <div class="product-description p-4 bg-white rounded-4 shadow-sm border border-light">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                        <h3 class=" fw-bold  mb-2" style="font-size: 40px;" th:text="${product.title}">
+                            Ажурные ворота
+                        </h3>
+                    </div>
+                    <div class="badge bg-success rounded-pill px-3 py-2 fs-6 fw-normal">
+                        В наличии
+                    </div>
+                </div>
+
+                <div th:text="${product.price} + ' руб/м²'" class="price-tag bg-danger text-white rounded-pill px-4 py-2 d-inline-block mb-4" style="font-size: 24px;">
+                    5 000 руб/м<sup>2</sup>
+                </div>
+
+                <ul class="list-unstyled mb-4" style="font-size: 18px;">
+                    <li class="mb-3 d-flex align-items-center">
+                        <i class="fas fa-ruler-combined text-danger me-3 fs-5"></i>
+                        <div>
+                            <strong class="text-dark">Стандартный размер:</strong >
+                            <span th:text="${product.size}" class="ms-2 text-muted">3420×2550 мм</span>
+                        </div>
+                    </li>
+                    <li class="mb-3 d-flex align-items-center">
+                        <i class="fas fa-cogs text-danger me-3 fs-5"></i>
+                        <div>
+                            <strong class="text-dark">Каркас (рама):</strong>
+                            <span class="ms-2 text-muted" th:text="${product.skeleton}">труба 50×25 и 30×20 мм</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Дополнительные характеристики -->
+                <div class="bg-light rounded-3 p-3 mb-4">
+                    <h6 class="fw-bold text-dark mb-3">Преимущества:</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2" th:text="${product.advantages}"><i class="fas fa-shield-alt text-success me-2"></i>Антикоррозийное покрытие</li>
+                    </ul>
+                    <ul class="list-unstyled mb-0">
+                    </ul>
+                </div>
+                <div class="bg-light rounded-3 p-3 mb-4" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2" ><i class="fas fa-shield-alt text-success me-2"></i>
+                            <a th:href="@{/product/edit/{id}(id=${product.id})}">
+                                <h3>Обновить- <img src="/img/Обновить.png" width="40" height="40" alt="Акция"  ></h3>
+                            </a>
+                            <a th:href="@{/product/delete/{id}(id=${product.id})}"
+                               onclick="return confirm('Вы уверены, что хотите удалить этот продукт?');">
+                                <h3>Удалить -<img src="/img/Удалить.png"  width="40" height="40" alt="Акция" ></h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="button"
+                            class="btn btn-danger btn-lg px-4 py-3 fw-medium d-flex align-items-center justify-content-center"
+                            style="font-size: 18px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#feedbackModal">
+                        <i class="fas fa-shopping-cart me-2"></i> Заказать
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно -->
+<!-- Модальное окно -->
+<div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+            <!-- Градиентная рамка сверху -->
+            <div class="modal-header border-0 bg-gradient-primary rounded-top-4">
+                <h5 class="modal-title text-white fw-bold" id="feedbackModalLabel">Подать заявку</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Тело формы -->
+            <div class="modal-body p-4">
+                <form th:action="@{/emailGo}" method="post"  id="feedbackForm" class="needs-validation" novalidate>
+
+                    <!-- Поле для имени -->
+                    <div class="mb-4">
+                        <label for="name" class="form-label fw-medium text-dark">Ваше имя <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light">
+                                <i class="bi bi-person text-muted"></i>
+            </span>
+                            <input type="text"  class="form-control form-control-lg border-start-0" id="name" name="name" placeholder="Иван Иванов" required>
+                        </div>
+                        <div class="invalid-feedback">Пожалуйста, введите ваше имя</div>
+                    </div>
+
+                    <!-- Поле для телефона -->
+                    <div class="mb-4">
+                        <label for="tel" class="form-label fw-medium text-dark">Телефон <span class="text-danger">*</span></label>
+                        <div class="input-group">
+            <span class="input-group-text bg-light">
+                <i class="bi bi-telephone text-muted"></i>
+            </span>
+                            <input type="text"  class="form-control form-control-lg border-start-0" id="tel" name="number" placeholder="+7 (999) 999-99-99" required>
+                        </div>
+                        <div class="invalid-feedback">Пожалуйста, введите номер телефона</div>
+                    </div>
+
+                    <!-- Поле для сообщения -->
+                    <div class="mb-4">
+                        <label for="message" class="form-label fw-medium text-dark">Сообщение <span class="text-danger">*</span></label>
+                        <textarea class="form-control form-control-lg" id="message" name="text" rows="4" placeholder="Опишите ваш вопрос или предложение..." required></textarea>
+                        <div class="invalid-feedback">Пожалуйста, напишите сообщение</div>
+                    </div>
+
+                    <!-- Чекбокс согласия -->
+                    <div class="mb-4 form-check">
+                        <input type="checkbox" class="form-check-input" id="feedbackAgree" required>
+                        <label class="form-check-label text-muted" for="feedbackAgree">
+                            Я согласен на обработку персональных данных
+                        </label>
+                        <div class="invalid-feedback">Необходимо согласие на обработку данных</div>
+                    </div>
+
+                    <!-- Кнопка отправки -->
+                    <button type="submit" class="btn btn-primary btn-lg w-100 py-3 fw-bold" id="submitFeedback">
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        Отправить заявку
+                    </button>
+
+                </form>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const form = document.getElementById('feedbackForm');
+
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+
+                        form.classList.add('was-validated');
+
+                        // Дополнительно: показываем спиннер при отправке
+                        const spinner = form.querySelector('.spinner-border');
+                        const buttonText = form.querySelector('button span:not(.spinner-border)');
+
+                        if (form.checkValidity()) {
+                            spinner.classList.remove('d-none');
+                            buttonText.textContent = 'Отправка...';
+                        }
+                    });
+
+                    // Деактивируем кнопку, пока форма не валидна
+                    const inputs = form.querySelectorAll('input, textarea, checkbox');
+                    const submitBtn = document.getElementById('submitFeedback');
+
+                    inputs.forEach(input => {
+                        input.addEventListener('input', checkFormValidity);
+                        input.addEventListener('change', checkFormValidity);
+                    });
+
+                    function checkFormValidity() {
+                        submitBtn.disabled = !form.checkValidity();
+                    }
+                });
+
+            </script>
+
+            <!-- Футер с дополнительной информацией -->
+            <div class="modal-footer bg-light border-top-0">
+                <p class="text-muted text-center mb-0 small">
+                    Мы ответим в течение 24 часов
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно -->
+
+<!-- Карточки товара -->
+<div class="container-fluid text-left">
+    <h1  style="font-weight: 800; font-size: 25px; margin-left: 15px">
+        Описание
+    </h1>
+</div>
+<div class="container-fluid text-left" th:object="${product.id}">
+    <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px" th:text="${product.description}">
+        Элегантные кованые ворота с ажурным узором — воплощение благородной эстетики и безупречного мастерства. Тонкая проработка деталей, плавные изгибы металла и гармоничное сочетание открытых и закрытых элементов создают эффект воздушности, не жертвуя при этом надёжностью.<br>
+        Изготовлены из высокопрочной стали с антикоррозийным покрытием, что гарантирует долговечность даже в сложных климатических условиях. Индивидуальный дизайн позволяет вписать ворота в любой архитектурный ансамбль — от классического особняка до современного коттеджа.
+        <br>
+        <br>
+    </h1>
+</div>
+<div class="container-fluid text-left">
+    <h1  style="font-weight: 800; font-size: 20px; margin-left: 12px">
+        Производственная компания «Престиж-ковка» предлагает изготовление кованых ворот с уникальным дизайном, а также по стандартным эскизам.
+    </h1>
+</div>
+<div class="container-fluid text-left">
+    <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px">
+        Наши производственные мощности расположены в Воронеже. При этом доставить продукцию мы можем в любой город России, используя для этого налаженную сеть логистики.
+        <br>
+        <br>
+    </h1>
+</div>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="bg-dark text-white py-5">
+    <!-- Section: Social media -->
+    <section class="container mb-5">
+        <div class="d-flex justify-content-center justify-content-lg-between align-items-center p-3 border-bottom border-secondary">
+            <!-- Left -->
+            <div class="me-2 d-none d-lg-block">
+                <span class="text-muted">Следите за нами в соцсетях:</span>
+            </div>
+
+            <!-- Right -->
+            <div class="social-icons d-flex justify-content-center align-items-center gap-4 p-3">
+                <a class="nav-link ekb " aria-current="page" href="#">
+                    <a href="https://t.me/username" style="text-decoration: none;">
+                        <img src="/img/телеграмм.png" class="mes" alt="Логотип"  >
+                    </a>
+                    <a style="text-decoration: none;">
+                        <img src="/img/Почта.png" class="mes1" alt="Логотип" >
+                    </a>
+                    <a style="text-decoration: none;">
+                        <img src="/img/VK.png" class="mes1" alt="Логотип" >
+                    </a>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section: Links -->
+    <section class="container">
+        <div class="row">
+            <!-- Column 1: Logo and contact -->
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <div class="footer-logo text-center text-md-start">
+                    <a class="navbar-brand d-inline-block mb-3" href="/">
+                        <img src="/img/Логотип.png" alt="Престиж-Ковка" width="150" height="150" style="border-radius: 100%">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Services -->
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <h6 class="text-uppercase fw-bold mb-4">Все услуги</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="/VorotaKatalog" class="text-decoration-none text-light hover-text-white">Кованые ворота</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/KalitkaKatalog" class="text-decoration-none text-light hover-text-white">Кованые калитки</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/ZaborKatalog" class="text-decoration-none text-light hover-text-white">Кованые заборы</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/PerilaKatalog" class="text-decoration-none text-light hover-text-white">Кованые перила</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/ReshotkaKatalog" class="text-decoration-none text-light hover-text-white">Кованые решётки</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/BesedkaKatalog" class="text-decoration-none text-light hover-text-white">Кованые беседки</a>
+                    </li>
+                    <li>
+                        <a href="/Katalog" style="color: red">Посмотреть все услуги</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact info -->
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <h6 class="text-uppercase fw-bold mb-4">Контакты</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                        <span>Воронежская область, г. Лиски, ул. Чапаева офис 37.</span>
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-envelope me-2 text-primary"></i>
+                        <a href="mailto:oleg_novak_98@mail.ru" class="text-decoration-none text-light hover-text-white">prestige_forging83@mail.ru</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-envelope me-2 text-primary"></i>
+                        <a href="mailto:oleg_novak_98@mail.ru" class="text-decoration-none text-light hover-text-white">8-900-924-46-46</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Quick links -->
+            <div class="col-md-6 col-lg-3">
+                <h6 class="text-uppercase fw-bold mb-4">Полезные ссылки</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="#!" class="text-decoration-none text-light hover-text-white">О компании</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/portfolio" class="text-decoration-none text-light hover-text-white">Портфолио</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#!" class="text-decoration-none text-light hover-text-white">Гарантии</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-decoration-none text-light hover-text-white">Оплата</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Copyright -->
+    <div class="container mt-5 pt-4 border-top border-secondary">
+        <div class="text-center py-3">
+            <p class="mb-0">© 2026 <a href="/"  style="color: red">Престиж-Ковка</a>. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+<!-- Footer -->
+
+
+<!-- Подключаем иконки Bootstrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>
