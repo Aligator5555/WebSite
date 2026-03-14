@@ -1,37 +1,36 @@
 package org.example.website.controller;
 
 
-import org.example.website.model.Portfolio;
 import org.example.website.model.Product;
 import org.example.website.model.ProductCategory;
 import org.example.website.model.TextEntry;
-import org.example.website.service.OCompaniesService;
-import org.example.website.service.PortfolioService;
-import org.example.website.service.ProductService;
-import org.example.website.service.TextService;
+import org.example.website.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class Main {
     private final ProductService productService;
     private final TextService textService;
-    private final PortfolioService portfolioService;
 
     public Main(ProductService productService, OCompaniesService oCompaniesService, TextService textService, TextService textService1, PortfolioService portfolioService) {
         this.productService = productService;
         this.textService = textService1;
-        this.portfolioService = portfolioService;
     }
 
     @GetMapping("/login")
     public String admin(Model model) {
         return "login";
+    }
+
+
+    @GetMapping("/addInfo")
+    public String addInfo(Model model) {
+        return "AddInfo";
     }
 
     @GetMapping("/")
@@ -42,7 +41,6 @@ public class Main {
         model.addAttribute("category", category);
         List<TextEntry> textControllers = textService.lisText();
         model.addAttribute("textControllers", textControllers);
-
 
         return "main";
     }

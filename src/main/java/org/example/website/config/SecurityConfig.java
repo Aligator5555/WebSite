@@ -38,7 +38,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/", "/KovkaNaZakaz", "/emailGo",
+                        .requestMatchers("/","/addInfo", "/KovkaNaZakaz", "/emailGo",
                                 "/portfolio/{id}", "/descriptionPortfolio/{id}",
                                 "/imagesPortfolio/{id}", "/description/{id}",
                                 "/product/edit/{id}", "/product/{id}",
@@ -76,7 +76,7 @@ public class SecurityConfig {
                 )
                 .exceptionHandling(ex -> ex
                         .accessDeniedPage("/access-denied")
-                        .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login"))
+                        .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"))
                 );
 
         return http.build();

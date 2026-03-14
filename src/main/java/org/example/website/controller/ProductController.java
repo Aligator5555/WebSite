@@ -21,12 +21,10 @@ import java.util.Optional;
 @Controller
 public class ProductController {
     private final ProductService productService;
-    private final ProductRepository productRepository;
 
 
     public ProductController(ProductService productService, ImageRepository imageRepository, ProductRepository productRepository) {
         this.productService = productService;
-        this.productRepository = productRepository;
     }
 
     @GetMapping("/createProduct")

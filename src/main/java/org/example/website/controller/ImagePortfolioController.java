@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
 
 @RestController
 public class ImagePortfolioController {
@@ -28,10 +29,17 @@ public class ImagePortfolioController {
 
 
     @GetMapping("/imagesPortfolio/{id}")
-    private ResponseEntity<?> getImagePortfolioById(@PathVariable Long id) {
+    public ResponseEntity<?> getImagePortfolioById(@PathVariable Long id) throws UnsupportedEncodingException {
         ImagePortfolio image = imagePortfolioRepository.findById(id).orElse(null);
+        if (image == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        String encodedFileName = java.net.URLEncoder.encode(image.getOriginalFileName(), "UTF-8")
+                .replace("+", "%20");
+
         return ResponseEntity.ok()
-                .header("fileName", image.getOriginalFileName())
+                .header("Content-Disposition", "attachment; filename*=UTF-8''" + encodedFileName)
                 .contentType(MediaType.valueOf(image.getContentType()))
                 .contentLength(image.getSize())
                 .body(new InputStreamResource(new ByteArrayInputStream(image.getBytes())));

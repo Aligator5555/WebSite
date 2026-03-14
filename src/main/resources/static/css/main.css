@@ -956,23 +956,23 @@ body{
 
     }
     .form-control.form{
-        width: 70px;
-        height: 25px;
+        width: 55px;
+        height: 20px;
         color: #f54818;
         border-color: #f54818;
-        font-size: 10px;
+        font-size: 7px;
         margin-top: -5px;
     }
     .btn.btn-outline-success.form{
         color: #f54818;
         border-color: #f54818;
-        width: 40px;
-        height: 25px;
+        width: 35px;
+        height: 20px;
         text-align: center;      /* Горизонтальное выравнивание */
         display: flex;
         align-items: center;   /* Вертикальное выравнивание */
         justify-content: center; /* Горизонтальное для flex-контейнера */
-        font-size: 10px;
+        font-size: 8px;
         margin-top: -5px;
     }
     /* Форма ввода */
@@ -984,8 +984,8 @@ body{
     /* начки ект и тел */
     /* Стили для средних экранов */
     .log{
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         border-radius: 100%;
     }
     /* значки месседжер */
@@ -1015,7 +1015,7 @@ body{
     .navbar-brand.class{
         font-family: "Monomakh", system-ui;
         color: white;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 700;
         font-style: oblique;
     }
@@ -1029,7 +1029,7 @@ body{
     /* Екатеринбург*/
     /* 1 навигационная панель*/
     .navbar {
-        height: 120px;
+        height: 105px;
         align-items: flex-start !important; /* Поднимает элементы к верху */
         background-color:#1a1a1a;
 
@@ -1037,7 +1037,7 @@ body{
     /* 1 навигационная панель*/
     /* 2 навигационная панель*/
     .navbar.two {
-        height: 50px;
+        height: 35px;
         align-items: flex-start !important; /* Поднимает элементы к верху */
         background-color:#1a1a1a;
     }

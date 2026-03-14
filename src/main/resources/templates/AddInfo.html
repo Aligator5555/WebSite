@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
       xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Ковка по металлу</title>
     <!-- Подключаем Bootstrap CSS -->
@@ -210,57 +210,58 @@
         </div>
     </div>
 </nav>
-<!-- Карточки товара -->
-<br>
-<div class="container-fluid text-center">
-    <h1 class="Katalog" style="font-weight: 800">
-        ОГРАЖДЕНИЕ ПЛОЩАДОК
-    </h1>
-</div>
-<div class="container my-4" >
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        <div class="col" th:each="product : ${products}">
-            <a th:href="@{/description/{id}(id=${product.id})}"  th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Ворота.jfif" class="card-img-top img-fluid" th:src="@{/images/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
-                        <span class="card-title-text" th:text="${product.title}"></span>
-                    </h5>
-                    <h5 class="card-title flex-grow-1" th:text="${product.price}+ ' руб/м²'" style="text-align: center; font-size: 15px; font-weight: 700; color: rgba(255,0,0,0.59)">
-                        50 000 руб
-                    </h5>
+<!-- Форма ввода -->
+
+<section class="text-center text-lg-start">
+    <!-- Jumbotron -->
+    <div class="container py-4" >
+        <div class="row g-0 align-items-center" >
+            <div class="col" >
+                <div class="card cascading-right">
+                    <div class="card-body p-5 shadow-5 text-center" style= " background-color: rgba(0,0,0,0.87);">
+                        <h2 class="fw-bold mb-5" style="color: white">Добавление информацию</h2>
+                        <form action="/addInfoSave" method="post" style="color: white">
+                            <!-- Скрытое поле CSRF (обязательно при включённом CSRF в Spring Security) -->
+                            <input type="hidden" name="_csrf" value="${_csrf.token}" />
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="text" name="address" id="form3Example1" class="form-control" required />
+                                        <label class="form-label" for="form3Example1">Введите адрес</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="text" name="emailAddress" id="form3Example2" class="form-control" required />
+                                        <label class="form-label" for="form3Example2">Введите email</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="text" name="number" id="form3Example3" class="form-control" required />
+                                        <label class="form-label" for="form3Example3">Введите номер</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Блок для сообщений об ошибках/успехе (опционально) -->
+                            <div id="message-box" style="display: none;" class="alert"></div>
+
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" style="margin-top: 50px; background-color: #c82333; font-size: 20px">
+                                Добавить
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
-</div>
-<!-- Карточки товара -->
-<div class="container-fluid text-left">
-    <h1  style="font-weight: 800; font-size: 25px; margin-left: 15px">
-        Заказать ограждение площадок
-    </h1>
-</div>
-<div class="container-fluid text-left">
-    <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px">
-        Ограждения на детских и спортивных площадках необходимы по двум причинам. Во-первых, чтобы избежать вылетов спортивных снарядов за пределы игровой территории. Во-вторых, чтобы обеспечить дополнительную безопасность находящихся в пределах площади детей или спортсменов.
-
-        Само собой, никто не исключал эстетическую функцию. Качественная покраска сетки или ограждения для детских или спортивных площадок позволяет улучшить внешний вид территории. Особенно это актуально для жилых или парковых зон. Ограждения окрашиваются специальной полимерной краской. Она защищает металл от коррозии и других неблагоприятных факторов окружающей среды. Стандартный цвет – зелёный. По желанию клиента сможем покрасить в другой оттенок.
-        <br>
-        <br>
-    </h1>
-</div>
-<div class="container-fluid text-left">
-    <h1  style="font-weight: 800; font-size: 15px; margin-left: 12px">
-        Производственная компания «Престиж-ковка» предлагает изготовление ограждения для площадок с уникальным дизайном, а также по стандартным эскизам.
-    </h1>
-</div>
-<div class="container-fluid text-left">
-    <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px">
-        Доставить продукцию мы можем в любой город России, используя для этого налаженную сеть логистики.
-        <br>
-        <br>
-    </h1>
-</div>
+    <!-- Jumbotron -->
+</section>
+<!-- Форма ввода -->
 <!-- Footer -->
 <!-- Footer -->
 <footer class="bg-dark text-white py-5">
@@ -378,11 +379,67 @@
     </div>
 </footer>
 <!-- Footer -->
+
 <!-- Подключаем иконки Bootstrap -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cardsWrapper = document.getElementById('cardsWrapper');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        // Ширина прокрутки за один клик
+        const scrollAmount = 300;
+
+        prevBtn.addEventListener('click', function() {
+            cardsWrapper.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        nextBtn.addEventListener('click', function() {
+            cardsWrapper.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Показываем/скрываем стрелки в зависимости от позиции прокрутки
+        function updateButtonVisibility() {
+            const maxScroll = cardsWrapper.scrollWidth - cardsWrapper.clientWidth;
+
+            if (cardsWrapper.scrollLeft === 0) {
+                prevBtn.style.opacity = '0';
+                prevBtn.style.pointerEvents = 'none';
+            } else {
+                prevBtn.style.opacity = '1';
+                prevBtn.style.pointerEvents = 'auto';
+            }
+
+            if (cardsWrapper.scrollLeft >= maxScroll - 1) {
+                nextBtn.style.opacity = '0';
+                nextBtn.style.pointerEvents = 'none';
+            } else {
+                nextBtn.style.opacity = '1';
+                nextBtn.style.pointerEvents = 'auto';
+            }
+        }
+
+        // Инициализация видимости кнопок
+        updateButtonVisibility();
+
+        // Обновление при прокрутке
+        cardsWrapper.addEventListener('scroll', updateButtonVisibility);
+    });
+
+
+</script>
+
 </body>
 </html>
