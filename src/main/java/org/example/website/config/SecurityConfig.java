@@ -38,29 +38,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/","/addInfo", "/KovkaNaZakaz", "/emailGo",
-                                "/portfolio/{id}", "/descriptionPortfolio/{id}",
-                                "/imagesPortfolio/{id}", "/description/{id}",
-                                "/product/edit/{id}", "/product/{id}",
-                                "/images/{id}", "/product/create", "/VorotaKatalog",
-                                "/KalitkaKatalog", "/ZaborKatalog", "/PerilaKatalog",
-                                "/ReshotkaKatalog", "/BesedkaKatalog", "/MostiKatalog",
-                                "/KaheliKatalog", "/MongaliKatalog", "/SkameikiKatalog",
-                                "/YrbanKatalog", "/ChugunSkameyki", "/SadovStoli",
-                                "/NaboriKatalog", "/MebelLoft", "/UlishnieYrni",
-                                "/KonteinerTBO", "/FonarStolb", "/MebelKatalog",
-                                "/OgragdeniaKatalog", "/RitualIzdeliaKatalog",
-                                "/KozirkiiNavesiKatalog", "/AlementiKovkiKatalog",
-                                "/TableDoma", "/OgragdenPloshadok", "/RazhieIzdeliaKatalog",
-                                "/PolomernaiKraskaKatalog", "/RezinovaiKroshkaKatalog",
-                                "/Katalog", "/WholesaleBuyer", "/Contacts", "/portfolio",
-                                "/searchByTitle", "/img/**", "/css/**", "/static/**",
-                                "/templates/**").permitAll()
+                        .requestMatchers("/**", "/img/**", "/css/**", "/static/**").permitAll()
+                        .requestMatchers("/access-denied", "/login").permitAll()
                         .requestMatchers("/admin/**", "/secret-page").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
+                        .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/", true)
                         .failureUrl("/login?error=true")
                         .permitAll()
@@ -70,16 +55,15 @@ public class SecurityConfig {
                         .invalidateHttpSession(true)
                         .permitAll()
                 )
-                .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/api/**", "/img/**", "/css/**", "/static/**")
-                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                .csrf(csrf -> csrf.disable()
+
                 )
                 .exceptionHandling(ex -> ex
                         .accessDeniedPage("/access-denied")
-                        .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"))
                 );
 
         return http.build();
     }
+
 }
 

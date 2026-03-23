@@ -1,7 +1,5 @@
 package org.example.website.controller;
 
-
-
 import org.example.website.model.Image;
 import org.example.website.repository.ImageRepository;
 import org.springframework.core.io.InputStreamResource;
@@ -27,7 +25,6 @@ public class ImageController {
     private ResponseEntity<?> getImageById(@PathVariable Long id) {
         Image image = imageRepository.findById(id).orElse(null);
         return ResponseEntity.ok()
-                .header("fileName", image.getOriginalFileName())
                 .contentType(MediaType.valueOf(image.getContentType()))
                 .contentLength(image.getSize())
                 .body(new InputStreamResource(new ByteArrayInputStream(image.getBytes())));

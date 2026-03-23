@@ -22,11 +22,11 @@ public class Main {
         this.textService = textService1;
     }
 
+
     @GetMapping("/login")
     public String admin(Model model) {
         return "login";
     }
-
 
     @GetMapping("/addInfo")
     public String addInfo(Model model) {

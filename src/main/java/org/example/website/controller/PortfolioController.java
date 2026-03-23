@@ -33,7 +33,7 @@ public class PortfolioController {
 
     @GetMapping("/addPortfolio")
     public String addPortfolio(Model model) {
-        return "addPortfolio";
+        return "AddPortfolio";
     }
 
     @GetMapping("/cardPortfolio")
@@ -44,7 +44,6 @@ public class PortfolioController {
     @GetMapping("/portfolio")
     public String Portfolio(Model model) {
         List<Portfolio> listPortfolio = portfolioService.listPortfolio();
-        System.out.println("Количество портфолио: " + listPortfolio.size()); // Логируем размер списка
         model.addAttribute("portfolios", listPortfolio);
         return "Portfolio";
     }

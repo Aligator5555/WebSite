@@ -61,7 +61,6 @@ public class PortfolioService {
     private ImagePortfolio toImageEntity(MultipartFile file) throws IOException {
         ImagePortfolio imagePortfolio = new ImagePortfolio();
         imagePortfolio.setName(file.getName());
-        imagePortfolio.setOriginalFileName(file.getOriginalFilename());
         imagePortfolio.setContentType(file.getContentType());
         imagePortfolio.setSize(file.getSize());
         imagePortfolio.setBytes(file.getBytes());

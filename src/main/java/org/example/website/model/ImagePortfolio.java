@@ -13,9 +13,6 @@ public class ImagePortfolio {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "original_file_name")
-    private String originalFileName;
-
     @Column(name = "size")
     private Long size;
 
@@ -38,7 +35,6 @@ public class ImagePortfolio {
     public ImagePortfolio(Long id, String name, String originalFileName, Long size, String contentType, boolean isPreviewImage, byte[] bytes, Portfolio portfolio) {
         this.id = id;
         this.name = name;
-        this.originalFileName = originalFileName;
         this.size = size;
         this.contentType = contentType;
         this.isPreviewImage = isPreviewImage;
@@ -60,14 +56,6 @@ public class ImagePortfolio {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getOriginalFileName() {
-        return originalFileName;
-    }
-
-    public void setOriginalFileName(String originalFileName) {
-        this.originalFileName = originalFileName;
     }
 
     public Long getSize() {

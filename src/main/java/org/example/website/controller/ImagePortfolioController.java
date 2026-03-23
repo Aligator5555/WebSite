@@ -35,11 +35,8 @@ public class ImagePortfolioController {
             return ResponseEntity.notFound().build();
         }
 
-        String encodedFileName = java.net.URLEncoder.encode(image.getOriginalFileName(), "UTF-8")
-                .replace("+", "%20");
 
         return ResponseEntity.ok()
-                .header("Content-Disposition", "attachment; filename*=UTF-8''" + encodedFileName)
                 .contentType(MediaType.valueOf(image.getContentType()))
                 .contentLength(image.getSize())
                 .body(new InputStreamResource(new ByteArrayInputStream(image.getBytes())));

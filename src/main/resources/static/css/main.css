@@ -918,7 +918,6 @@ body{
     .NameWork2{
         position: relative;
         top: -50px; /* Поднимает на 15px */
-        font-family: 'Marck Script', cursive;
         font-size: 15px;
         font-weight: 300;
         color: white; /* белый текст */
@@ -930,7 +929,6 @@ body{
     .NameWork{
         position: relative;
         top: -50px; /* Поднимает на 15px */
-        font-family: 'Marck Script', cursive;
         font-size: 15px;
         font-weight: 300;
         color: white; /* белый текст */
@@ -956,8 +954,8 @@ body{
 
     }
     .form-control.form{
-        width: 55px;
-        height: 20px;
+        width: 50px;
+        height: 17px;
         color: #f54818;
         border-color: #f54818;
         font-size: 7px;
@@ -966,8 +964,8 @@ body{
     .btn.btn-outline-success.form{
         color: #f54818;
         border-color: #f54818;
-        width: 35px;
-        height: 20px;
+        width: 30px;
+        height: 17px;
         text-align: center;      /* Горизонтальное выравнивание */
         display: flex;
         align-items: center;   /* Вертикальное выравнивание */
@@ -984,8 +982,8 @@ body{
     /* начки ект и тел */
     /* Стили для средних экранов */
     .log{
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
         border-radius: 100%;
     }
     /* значки месседжер */
@@ -1005,17 +1003,17 @@ body{
     /* Каталог*/
     .nav-link.katalog{
         color: white;
-        font-size: 9px;
+        font-size: 7px;
     }
     .nav-link {
-        font-size: 9px;
+        font-size: 7px;
     }
     /* Каталог*/
     /* Название сайта*/
     .navbar-brand.class{
         font-family: "Monomakh", system-ui;
         color: white;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 700;
         font-style: oblique;
     }
