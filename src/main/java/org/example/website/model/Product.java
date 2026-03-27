@@ -18,7 +18,7 @@ public class Product {
     @Column(name = "description", columnDefinition = "text")
     private String description; // Описание продукта
     @Column(name = "price")
-    private int price; // Цена продукта
+    private String price; // Цена продукта
     @Column(name = "size")
     private String size; // Размер продукта
     @Column(name = "skeleton")
@@ -52,7 +52,7 @@ public class Product {
     }
 
     public Product(Long id, String title, String description,
-                   int price, String size, String skeleton,
+                   String price, String size, String skeleton,
                    String verticalBeams, String gateStitching,
                    String advantages, List<Image> images,
                    Long previewImageId, LocalDateTime dateOfCreated,
@@ -68,6 +68,14 @@ public class Product {
         this.previewImageId = previewImageId;
         this.dateOfCreated = dateOfCreated;
         this.productCategory = productCategory;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public Long getId() {
@@ -92,14 +100,6 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     public String getSize() {

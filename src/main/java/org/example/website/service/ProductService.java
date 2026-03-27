@@ -103,6 +103,9 @@ public class ProductService {
 
         // Обновляем основные поля
         existingProduct.setTitle(updatedProduct.getTitle());
+        existingProduct.setSize(updatedProduct.getSize());
+        existingProduct.setSkeleton(updatedProduct.getSkeleton());
+        existingProduct.setAdvantages(updatedProduct.getAdvantages());
         existingProduct.setDescription(updatedProduct.getDescription());
         existingProduct.setPrice(updatedProduct.getPrice());
         existingProduct.setProductCategory(productCategory);

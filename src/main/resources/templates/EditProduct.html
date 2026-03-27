@@ -60,6 +60,9 @@
                         <a href="https://mail.ru/" style="text-decoration: none;">
                             <img src="/img/Почта.png" class="mes1" alt="Логотип" >
                         </a>
+                        <a href="https://max.ru/u/f9LHodD0cOLz7SWBvbyELbSsheLfWm3WuVoypxhpOf6VVCM0IEmZ6Pxm3RI" style="text-decoration: none;">
+                            <img src="/img/Max.png" class="mes1" alt="Логотип" >
+                        </a>
                     </a>
                 </li>
             </ul>
@@ -70,7 +73,7 @@
 <nav class="navbar two navbar-expand ">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" >
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-0 mb-lg-0">
                 <li class="nav-item katalog dropdown d-md-none">
                     <a
                             class="nav-link active dropdown-toggle"
@@ -84,6 +87,13 @@
                     </a>
                     <ul class="dropdown-menu two-columns" style="background-color: #1a1a1a">
                         <li>
+                            <a class="dropdown-item "
+                               href="/portfolio"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >ПОРТФОЛИО
+                            </a>
                             <a class="dropdown-item "
                                href="/KovkaNaZakaz"
                                style="color: white; transition: all 0.3s;"
@@ -234,7 +244,7 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="number" name="price" id="form3Example2" class="form-control" th:value="${product.price}" required />
+                                        <input type="text" name="price" id="form3Example2" class="form-control" th:value="${product.price}" required />
                                         <label class="form-label" for="form3Example2">Цена</label>
                                     </div>
                                 </div>
@@ -262,15 +272,15 @@
 
                             <!-- Поля для загрузки изображений -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="file" name="file1" class="form-control" accept="image/jpeg,image/png,image/gif" />
+                                <input type="file" name="file1" class="form-control" accept="image/jpeg,image/png,image/gif" required/>
                                 <label class="form-label">Фотография 1</label>
                             </div>
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="file" name="file2" class="form-control" accept="image/jpeg,image/png,image/gif" />
+                                <input type="file" name="file2" class="form-control" accept="image/jpeg,image/png,image/gif"/>
                                 <label class="form-label">Фотография 2</label>
                             </div>
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="file" name="file3" class="form-control" accept="image/jpeg,image/png,image/gif" />
+                                <input type="file" name="file3" class="form-control" accept="image/jpeg,image/png,image/gif"/>
                                 <label class="form-label">Фотография 3</label>
                             </div>
 
@@ -313,96 +323,6 @@
                                 Обновить товар
                             </button>
                         </form>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                // Ищем форму по атрибутам, которые гарантированно есть в браузере
-                                const form = document.querySelector('form[method="post"][enctype="multipart/form-data"]');
-
-                                form.addEventListener('submit', function(event) {
-                                    let isValid = true;
-                                    clearPreviousErrors();
-
-                                    // Проверяем все обязательные текстовые поля (с атрибутом required)
-                                    const requiredFields = form.querySelectorAll('input[type="text"][required], textarea[required], select[required]');
-                                    requiredFields.forEach(field => {
-                                        if (!field.value.trim()) {
-                                            isValid = false;
-                                            showError(field, 'Это поле обязательно для заполнения');
-                                        }
-                                    });
-
-                                    // Проверяем числовое поле (цена)
-                                    const priceField = form.querySelector('input[name="price"]');
-                                    if (priceField && (!priceField.value || parseFloat(priceField.value) <= 0)) {
-                                        isValid = false;
-                                        showError(priceField, 'Цена должна быть положительным числом');
-                                    }
-
-                                    // Проверяем поля для загрузки файлов (все три обязательны)
-                                    const fileFields = form.querySelectorAll('input[type="file"]');
-                                    fileFields.forEach((field, index) => {
-                                        if (!field.files || field.files.length === 0) {
-                                            isValid = false;
-                                            showError(field, `Фотография ${index + 1} обязательна для загрузки`);
-                                        }
-                                    });
-
-                                    // Если форма невалидна — отменяем отправку
-                                    if (!isValid) {
-                                        event.preventDefault();
-                                        alert('Пожалуйста, заполните все обязательные поля и загрузите все изображения!');
-                                    }
-                                });
-
-                                // Функция для отображения ошибки рядом с полем
-                                function showError(field, message) {
-                                    clearFieldError(field);
-
-                                    // Создаём элемент с сообщением об ошибке
-                                    const errorElement = document.createElement('div');
-                                    errorElement.className = 'form-error';
-                                    errorElement.style.cssText = `
-            color: #c82333;
-            font-size: 12px;
-            margin-top: 5px;
-            padding: 5px;
-            background-color: #ffe6e6;
-            border-radius: 3px;
-        `;
-                                    errorElement.textContent = message;
-
-                                    // Добавляем элемент после поля ввода
-                                    field.parentNode.appendChild(errorElement);
-
-                                    // Выделяем поле красным
-                                    field.style.borderColor = '#c82333';
-                                    field.style.boxShadow = '0 0 5px #ffcdd2';
-                                }
-
-                                // Функция для очистки предыдущих ошибок
-                                function clearPreviousErrors() {
-                                    const existingErrors = form.querySelectorAll('.form-error');
-                                    existingErrors.forEach(error => error.remove());
-
-                                    // Сбрасываем стили полей
-                                    const allFields = form.querySelectorAll('input, textarea, select');
-                                    allFields.forEach(field => {
-                                        field.style.borderColor = '';
-                                        field.style.boxShadow = '';
-                                    });
-                                }
-
-                                // Функция для очистки ошибки конкретного поля
-                                function clearFieldError(field) {
-                                    const existingError = field.parentNode.querySelector('.form-error');
-                                    if (existingError) {
-                                        existingError.remove();
-                                    }
-                                    field.style.borderColor = '';
-                                    field.style.boxShadow = '';
-                                }
-                            });
-                        </script>
                     </div>
                 </div>
             </div>
@@ -423,11 +343,14 @@
             <!-- Right -->
             <div class="social-icons d-flex justify-content-center align-items-center gap-4 p-3">
                 <a class="nav-link ekb " aria-current="page">
-                    <a href="https://t.me/username" style="text-decoration: none;">
+                    <a href="https://t.me/+79065904910" style="text-decoration: none;">
                         <img src="/img/телеграмм.png" class="mes" alt="Логотип"  >
                     </a>
                     <a href="https://mail.ru/" style="text-decoration: none;">
                         <img src="/img/Почта.png" class="mes1" alt="Логотип" >
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOLz7SWBvbyELbSsheLfWm3WuVoypxhpOf6VVCM0IEmZ6Pxm3RI" style="text-decoration: none;">
+                        <img src="/img/Max.png" class="mes1" alt="Логотип" >
                     </a>
                 </a>
             </div>

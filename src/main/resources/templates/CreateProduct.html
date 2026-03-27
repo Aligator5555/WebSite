@@ -60,6 +60,9 @@
                         <a href="https://mail.ru/" style="text-decoration: none;">
                             <img src="/img/Почта.png" class="mes1" alt="Логотип" >
                         </a>
+                        <a href="https://max.ru/u/f9LHodD0cOLz7SWBvbyELbSsheLfWm3WuVoypxhpOf6VVCM0IEmZ6Pxm3RI" style="text-decoration: none;">
+                            <img src="/img/Max.png" class="mes1" alt="Логотип" >
+                        </a>
                     </a>
                 </li>
             </ul>
@@ -70,7 +73,7 @@
 <nav class="navbar two navbar-expand ">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" >
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-0 mb-lg-0">
                 <li class="nav-item katalog dropdown d-md-none">
                     <a
                             class="nav-link active dropdown-toggle"
@@ -84,6 +87,13 @@
                     </a>
                     <ul class="dropdown-menu two-columns" style="background-color: #1a1a1a">
                         <li>
+                            <a class="dropdown-item "
+                               href="/portfolio"
+                               style="color: white; transition: all 0.3s;"
+                               onmouseover="this.style.backgroundColor='#333'; this.style.color='red';"
+                               onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';"
+                            >ПОРТФОЛИО
+                            </a>
                             <a class="dropdown-item "
                                href="/KovkaNaZakaz"
                                style="color: white; transition: all 0.3s;"
@@ -231,7 +241,7 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="number" name="price" id="form3Example2" class="form-control" required />
+                                        <input type="text" name="price" id="form3Example2" class="form-control" required />
                                         <label class="form-label" for="form3Example2">Цена</label>
                                     </div>
                                 </div>
@@ -259,17 +269,17 @@
                             </div>
 
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="file" name="file1"  class="form-control" required />
+                                <input type="file" name="file1"  class="form-control"  />
                                 <label class="form-label" for="form3Example4">Первая фотография продукта</label>
                             </div>
 
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="file" name="file2"  class="form-control" required />
+                                <input type="file" name="file2"  class="form-control"  />
                                 <label class="form-label" for="form3Example4">Вторая фотография продукта</label>
                             </div>
 
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="file" name="file3"  class="form-control" required  />
+                                <input type="file" name="file3"  class="form-control"   />
                                 <label class="form-label" for="form3Example4">Третья фотография продукта</label>
                             </div>
                             <div>
@@ -337,56 +347,7 @@
     </div>
     <!-- Jumbotron -->
 </section>
-<script>
-    document.getElementById('productForm').addEventListener('submit', function(event) {
-        const form = event.target;
-        const inputs = form.querySelectorAll('input, textarea, select');
-        let isValid = true;
 
-        // Сбрасываем старые стили ошибок
-        inputs.forEach(input => {
-            input.parentElement.classList.remove('has-error');
-        });
-
-        // Проверяем каждое поле
-        inputs.forEach(input => {
-            if (!input.checkValidity()) {
-                isValid = false;
-                input.parentElement.classList.add('has-error');
-            }
-        });
-
-        if (!isValid) {
-            event.preventDefault();
-            showErrorMessage('Пожалуйста, заполните все обязательные поля!');
-        }
-    });
-
-    function showErrorMessage(message) {
-        let errorElement = document.getElementById('form-error');
-        if (!errorElement) {
-            errorElement = document.createElement('div');
-            errorElement.id = 'form-error';
-            errorElement.className = 'text-danger mt-3 text-center';
-            document.querySelector('.btn-primary').insertAdjacentElement('beforebegin', errorElement);
-        }
-        errorElement.textContent = message;
-    }
-
-    // Удаляем сообщение об ошибке при изменении любого поля
-    document.querySelectorAll('input, textarea, select').forEach(input => {
-        input.addEventListener('change', function() {
-            const errorElement = document.getElementById('form-error');
-            if (errorElement) {
-                errorElement.remove();
-            }
-            this.parentElement.classList.remove('has-error');
-        });
-    });
-
-
-</script>
-<!-- Форма ввода -->
 <!-- Footer -->
 <footer class="bg-dark text-white py-5">
     <!-- Section: Social media -->
@@ -400,11 +361,14 @@
             <!-- Right -->
             <div class="social-icons d-flex justify-content-center align-items-center gap-4 p-3">
                 <a class="nav-link ekb " aria-current="page">
-                    <a href="https://t.me/username" style="text-decoration: none;">
+                    <a href="https://t.me/+79065904910" style="text-decoration: none;">
                         <img src="/img/телеграмм.png" class="mes" alt="Логотип"  >
                     </a>
                     <a href="https://mail.ru/" style="text-decoration: none;">
                         <img src="/img/Почта.png" class="mes1" alt="Логотип" >
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOLz7SWBvbyELbSsheLfWm3WuVoypxhpOf6VVCM0IEmZ6Pxm3RI" style="text-decoration: none;">
+                        <img src="/img/Max.png" class="mes1" alt="Логотип" >
                     </a>
                 </a>
             </div>
@@ -504,60 +468,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cardsWrapper = document.getElementById('cardsWrapper');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-
-        // Ширина прокрутки за один клик
-        const scrollAmount = 300;
-
-        prevBtn.addEventListener('click', function() {
-            cardsWrapper.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-
-        nextBtn.addEventListener('click', function() {
-            cardsWrapper.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-
-        // Показываем/скрываем стрелки в зависимости от позиции прокрутки
-        function updateButtonVisibility() {
-            const maxScroll = cardsWrapper.scrollWidth - cardsWrapper.clientWidth;
-
-            if (cardsWrapper.scrollLeft === 0) {
-                prevBtn.style.opacity = '0';
-                prevBtn.style.pointerEvents = 'none';
-            } else {
-                prevBtn.style.opacity = '1';
-                prevBtn.style.pointerEvents = 'auto';
-            }
-
-            if (cardsWrapper.scrollLeft >= maxScroll - 1) {
-                nextBtn.style.opacity = '0';
-                nextBtn.style.pointerEvents = 'none';
-            } else {
-                nextBtn.style.opacity = '1';
-                nextBtn.style.pointerEvents = 'auto';
-            }
-        }
-
-        // Инициализация видимости кнопок
-        updateButtonVisibility();
-
-        // Обновление при прокрутке
-        cardsWrapper.addEventListener('scroll', updateButtonVisibility);
-    });
-
-
-</script>
 
 </body>
 </html>

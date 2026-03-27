@@ -39,7 +39,7 @@ public class DataInitializer implements CommandLineRunner {
             roleRepository.save(adminRole);
 
             User admin = new User(); admin.setUsername("admin");
-            admin.setPassword(passwordEncoder.encode("admin"));
+            admin.setPassword(passwordEncoder.encode("AdminKovka2026"));
             admin.setRoles(new HashSet<>(Set.of(adminRole))); userRepository.save(admin); }
 
 

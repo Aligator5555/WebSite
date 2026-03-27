@@ -29,7 +29,7 @@ public class EmailController {
                           @RequestParam("number") String number,
                           @RequestParam("text") String text,
                           Model model) {
-        emailService.sendEmail("oleg_novak_98@mail.ru",
+        emailService.sendEmail("prestige_forging83@mail.ru",
                 name,
                 number,
                 text);
