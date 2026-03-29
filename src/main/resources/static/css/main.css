@@ -982,8 +982,8 @@ body{
     /* начки ект и тел */
     /* Стили для средних экранов */
     .log{
-        width: 65px;
-        height: 65px;
+        width: 50px;
+        height: 50px;
         border-radius: 100%;
     }
     /* значки месседжер */
@@ -1013,7 +1013,7 @@ body{
     .navbar-brand.class{
         font-family: "Monomakh", system-ui;
         color: white;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 700;
         font-style: oblique;
     }
