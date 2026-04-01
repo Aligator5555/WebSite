@@ -1,7 +1,7 @@
 package org.example.website.model;
 
 public enum ProductCategory {
-
+    SALEKATALOG,
     KOVANVOROTA,
     KOVANKALITKA,
     KOVANZABOR,

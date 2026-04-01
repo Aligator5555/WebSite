@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -52,19 +54,24 @@ public class ProductController {
 
     @PostMapping("/product/update/{id}")
     public String updateProduct(@PathVariable Long id,
-                                @RequestParam("file1") MultipartFile file1,
-                                @RequestParam("file2") MultipartFile file2,
-                                @RequestParam("file3") MultipartFile file3,
+                                @RequestParam(value = "file1", required = false) MultipartFile file1,
+                                @RequestParam(value = "file2", required = false) MultipartFile file2,
+                                @RequestParam(value = "file3", required = false) MultipartFile file3,
+                                @RequestParam(value = "deleteImage1", required = false, defaultValue = "false") boolean deleteImage1,
+                                @RequestParam(value = "deleteImage2", required = false, defaultValue = "false") boolean deleteImage2,
+                                @RequestParam(value = "deleteImage3", required = false, defaultValue = "false") boolean deleteImage3,
                                 Product updatedProduct,
                                 ProductCategory productCategory) throws IOException {
         try {
-            productService.updateProduct(id, updatedProduct, productCategory, file1, file2, file3);
-            return "redirect:/" ; // перенаправление на страницу товара после обновления
+            productService.updateProduct(id, updatedProduct, productCategory,
+                    file1, deleteImage1, file2, deleteImage2, file3, deleteImage3);
+            return "redirect:/";
         } catch (Exception e) {
-            // В реальном приложении лучше использовать более специфичные исключения
-            return "redirect:/error?message=" + e.getMessage();
+
+            return "redirect:/error?message=" + URLEncoder.encode(e.getMessage(), StandardCharsets.UTF_8);
         }
     }
+
 
 
     @GetMapping("/product/{id}")

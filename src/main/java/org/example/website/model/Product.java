@@ -36,6 +36,10 @@ public class Product {
     private ProductCategory productCategory;
 
 
+    public void removeImage(Image image) {
+        images.remove(image);
+        image.setProduct(null);
+    }
     public Product() {
 
     }
@@ -158,3 +162,4 @@ public class Product {
         this.productCategory = productCategory;
     }
 }
+

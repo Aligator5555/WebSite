@@ -74,6 +74,16 @@ public class Main {
         return "Contacts";
     }
 
+    @GetMapping("/SaleKatalog")
+    public String saleKatalog(Model model) {
+        ProductCategory category = ProductCategory.SALEKATALOG;
+        List<Product> products = productService.getProductsByCategory(category);
+        model.addAttribute("products", products);
+        model.addAttribute("category", category);
+        return "SaleKatalog";
+
+    }
+
     @GetMapping("/VorotaKatalog")
     public String vorotaKatalog2(Model model) {
         ProductCategory category = ProductCategory.KOVANVOROTA;
