@@ -111,6 +111,18 @@ public class ProductController {
         }
 
     }
+    @GetMapping("/descriptionFoto/{id}")
+    public  String descriptionFoto(@PathVariable(name = "id") Long id, Model model) {
+        Optional<Product> product = productService.addIdProduct(id);
+        if (product.isPresent()) {
+            model.addAttribute("product", product.get());
+            model.addAttribute("images", product.get().getImages());
+            return "ProductFoto";
+        } else {
+            return "redirect:/error";
+        }
+
+    }
     // Отображение по категории
     @GetMapping("/products/category/{category}")
     public String productsByCategory(@PathVariable ProductCategory category,

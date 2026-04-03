@@ -45,14 +45,14 @@ public class PortfolioController {
     public String Portfolio(Model model) {
         List<Portfolio> listPortfolio = portfolioService.listPortfolio();
         model.addAttribute("portfolios", listPortfolio);
-        return "Portfolio";
+        return "Portfolio2";
     }
     @GetMapping("/portfolio/{id}")
     public String productInfo(@PathVariable Long id, Model model) {
         Portfolio portfolio = portfolioService.getPortfolioById(id);
         model.addAttribute("portfolio", portfolio);
         model.addAttribute("images", portfolio.getImages());
-        return "Portfolio";
+        return "Portfolio2";
     }
 
     @GetMapping("/descriptionPortfolio/{id}")

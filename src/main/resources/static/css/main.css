@@ -244,6 +244,14 @@ body{
 
 /* Большие десктопы (от 1200px) */
 @media (min-width: 1200px) {
+    .container-fluid.text{
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .accordion.text {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
     /* Карусель */
     .NameText{
         font-size: 20px;
@@ -407,6 +415,14 @@ body{
 /* Ноутбуки / десктопы (992–1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
     /* Стили для больших экранов */
+    .container-fluid.text{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .accordion.text {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
     /* Карусель */
     .NameText{
         font-size: 20px;
@@ -567,6 +583,14 @@ body{
 }
 /* Планшеты в альбоме / небольшие ноутбуки (768–991px) */
 @media (min-width: 768px) and (max-width: 991px) {
+    .container-fluid.text{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .accordion.text {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
     /* Карусель */
     .NameText{
         font-size: 17px;
@@ -731,6 +755,14 @@ body{
 
 /* Планшеты в портрете / большие телефоны (576–767px) */
 @media (min-width: 576px) and (max-width: 767px) {
+    .container-fluid.text{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .accordion.text {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
     /* Стили для маленьких экранов */
     /* Карусель */
     .NameText{
@@ -906,6 +938,14 @@ body{
 /* Мобильные (до 575px) */
 @media (max-width: 575px) {
     /* Стили для очень маленьких экранов */
+    .container-fluid.text{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .accordion.text {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     /* Карусель */
     .NameText{
         font-size: 10px;

@@ -63,11 +63,11 @@ public class Main {
     }
     @GetMapping("/WholesaleBuyer")
     public String wholesaleBuyer() {
-        return "WholesaleBuyer";
+        return "WholesaleBuyer2";
     }
     @GetMapping("/KovkaNaZakaz")
     public String kovkaNaZakaz(){
-        return "KovkaNaZakaz";
+        return "KovkaNaZakaz2";
     }
     @GetMapping("/Contacts")
     public String contacts() {
