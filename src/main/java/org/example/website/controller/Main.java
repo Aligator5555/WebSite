@@ -239,7 +239,7 @@ public class Main {
     }
     @GetMapping("/OgragdeniaKatalog")
     public String ogragdeniaKatalog(Model model) {
-        ProductCategory category = ProductCategory.OGRAGDENIEPLOSHADOK;
+        ProductCategory category = ProductCategory.KOVANOGRAGDENIA;
         List<Product> products = productService.getProductsByCategory(category);
         model.addAttribute("products", products);
         model.addAttribute("category", category);
