@@ -223,93 +223,95 @@
         </div>
     </div>
 </nav>
-<!-- Карточки товара -->
-<br>
-<div class="container-fluid text-center">
-    <h1 class="Katalog" style="font-weight: 800">
-        Портфолио
-        <a  href="/addPortfolio" sec:authorize="hasRole('ROLE_ADMIN')">
-            <img src="/img/Плюс.png"  alt="Логотип" height="30" width="30" >
-        </a>
-    </h1>
-
-</div>
-<div class="container my-4"  >
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        <div class="col" th:each="portfolio : ${portfolios}" >
-            <a  style="text-decoration: none" th:href="@{/descriptionPortfolio/{id}(id=${portfolio.id})}"  th:each="image : ${portfolio.images}" th:if="${imageStat.index == 0}">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Ворота.jfif" class="card-img-top img-fluid"  th:src="@{/imagesPortfolio/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
-                        <span class="card-title-text" th:text="${portfolio.name}"></span>
-                    </h5>
-                </div>
+<div class="fon">
+    <!-- Карточки товара -->
+    <br>
+    <div class="container-fluid text-center">
+        <h1 class="Katalog" style="font-weight: 800">
+            Портфолио
+            <a  href="/addPortfolio" sec:authorize="hasRole('ROLE_ADMIN')">
+                <img src="/img/Плюс.png"  alt="Логотип" height="30" width="30" >
             </a>
+        </h1>
+
+    </div>
+    <div class="container my-4"  >
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <div class="col" th:each="portfolio : ${portfolios}" >
+                <a  style="text-decoration: none" th:href="@{/descriptionPortfolio/{id}(id=${portfolio.id})}"  th:each="image : ${portfolio.images}" th:if="${imageStat.index == 0}">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Ворота.jfif" class="card-img-top img-fluid"  th:src="@{/imagesPortfolio/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
+                            <span class="card-title-text" th:text="${portfolio.name}"></span>
+                        </h5>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-<!-- Карточки товара -->
-<br>
-<div class="container-fluid text text-left">
-    <h1  style="font-weight: 800; font-size: 23px; ">
-        Кованые шедевры для вашего пространства
-        <br>
-        <br>
-    </h1>
-</div>
-<div class="container-fluid text" >
-    <h3 class="Katalog" style="font-weight: 500; font-size: 17px; font-weight: 300; ">
-        Более 1 000 довольных клиентов уже воплотили мечты о неповторимом оформлении участка с помощью «Престиж‑Ковка». Присоединяйтесь к их числу!
-        Наше портфолио — это не просто галерея работ, а концентрат профессионального опыта. Мы поможем найти решение, которое идеально впишется в ландшафт и оправдает все ваши ожидания по функционалу.
-    </h3>
-</div>
-<br>
-<div class="container-fluid text text-left">
-    <h1  style="font-weight: 800; font-size: 23px; ">
-        Превратим идею в реальность
-    </h1>
-</div>
-<br>
-<div class="container-fluid text" >
-    <h3 class="Katalog" style="font-weight: 500; font-size: 18px; font-weight: 300; ">
-        Не ограничивайтесь готовыми эскизами — мы создаём изделия по индивидуальным пожеланиям. Хотите адаптировать проект под особенности территории? Легко!<br>
-        <br>
-        Вы можете:<br>
-        * взять за основу понравившийся дизайн;<br>
+    <!-- Карточки товара -->
+    <br>
+    <div class="container-fluid text text-left">
+        <h1  style="font-weight: 800; font-size: 23px; ">
+            Кованые шедевры для вашего пространства
+            <br>
+            <br>
+        </h1>
+    </div>
+    <div class="container-fluid text" >
+        <h3 class="Katalog" style="font-weight: 500; font-size: 17px; font-weight: 300; ">
+            Более 1 000 довольных клиентов уже воплотили мечты о неповторимом оформлении участка с помощью «Престиж‑Ковка». Присоединяйтесь к их числу!
+            Наше портфолио — это не просто галерея работ, а концентрат профессионального опыта. Мы поможем найти решение, которое идеально впишется в ландшафт и оправдает все ваши ожидания по функционалу.
+        </h3>
+    </div>
+    <br>
+    <div class="container-fluid text text-left">
+        <h1  style="font-weight: 800; font-size: 23px; ">
+            Превратим идею в реальность
+        </h1>
+    </div>
+    <br>
+    <div class="container-fluid text" >
+        <h3 class="Katalog" style="font-weight: 500; font-size: 18px; font-weight: 300; ">
+            Не ограничивайтесь готовыми эскизами — мы создаём изделия по индивидуальным пожеланиям. Хотите адаптировать проект под особенности территории? Легко!<br>
+            <br>
+            Вы можете:<br>
+            * взять за основу понравившийся дизайн;<br>
 
-        * изменить размеры под проём;<br>
+            * изменить размеры под проём;<br>
 
-        * выбрать тип конструкции (откатные, распашные, секционные ворота);<br>
+            * выбрать тип конструкции (откатные, распашные, секционные ворота);<br>
 
-        * комбинировать материалы (ковка + поликарбонат, дерево и др.).<br>
+            * комбинировать материалы (ковка + поликарбонат, дерево и др.).<br>
 
-    </h3>
+        </h3>
+    </div>
+    <br>
+    <div class="container-fluid text text-left">
+        <h1  style="font-weight: 800; font-size: 23px; ">
+            Консультация без обязательств
+        </h1>
+    </div>
+    <br>
+    <div class="container-fluid text" >
+        <h3 class="Katalog" style="font-weight: 500; font-size: 18px; font-weight: 300; ">
+            Затрудняетесь с выбором? Наши дизайнеры бесплатно помогут:<br>
+
+            * разобрать плюсы и минусы разных решений;<br>
+
+            * рассчитать нагрузку и подобрать крепёж;<br>
+
+            * спланировать этапы доставки и монтажа.<br>
+        </h3>
+    </div>
+    <br>
+    <div class="container-fluid text text-left">
+        <h1  style="font-weight: 800; font-size: 23px;">
+            Звоните в любое время!
+        </h1>
+    </div>
+    <!-- Footer -->
 </div>
-<br>
-<div class="container-fluid text text-left">
-    <h1  style="font-weight: 800; font-size: 23px; ">
-        Консультация без обязательств
-    </h1>
-</div>
-<br>
-<div class="container-fluid text" >
-    <h3 class="Katalog" style="font-weight: 500; font-size: 18px; font-weight: 300; ">
-        Затрудняетесь с выбором? Наши дизайнеры бесплатно помогут:<br>
-
-        * разобрать плюсы и минусы разных решений;<br>
-
-        * рассчитать нагрузку и подобрать крепёж;<br>
-
-        * спланировать этапы доставки и монтажа.<br>
-    </h3>
-</div>
-<br>
-<div class="container-fluid text text-left">
-    <h1  style="font-weight: 800; font-size: 23px;">
-        Звоните в любое время!
-    </h1>
-</div>
-<!-- Footer -->
 <footer class="bg-dark text-white py-5">
     <!-- Section: Social media -->
     <section class="container mb-5">

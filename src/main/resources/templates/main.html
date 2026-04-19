@@ -268,25 +268,26 @@
     </div>
 <!-- Карусель -->
 <!-- Прокрутка-->
-<br>
-<div class="container-fluid text-center">
-    <h1 class="Katalog" style="font-weight: 800">
-        Хиты продаж
-    </h1>
-</div>
-<div class="container my-5">
-    <!-- Контейнер для всего компонента -->
-    <div class="scroll-component position-relative">
-        <!-- Кнопка «влево» -->
-        <button class="scroll-btn prev-btn" aria-label="Прокрутить влево" style="background-color: red">
-            <i class="bi bi-chevron-left"></i>
-        </button>
+<div class="fon">
+    <br>
+    <div class="container-fluid text-center">
+        <h1 class="Katalog" style="font-weight: 800">
+            Хиты продаж
+        </h1>
+    </div>
+    <div class="container my-5">
+        <!-- Контейнер для всего компонента -->
+        <div class="scroll-component position-relative">
+            <!-- Кнопка «влево» -->
+            <button class="scroll-btn prev-btn" aria-label="Прокрутить влево" style="background-color: red">
+                <i class="bi bi-chevron-left"></i>
+            </button>
 
-        <!-- Контейнер для прокрутки карточек -->
-        <div class="cards-wrapper" id="cardsWrapper">
-            <!-- Карточка 1 -->
-            <div th:each="product : ${products}">
-                <a th:href="@{/description/{id}(id=${product.id})}" th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none;">
+            <!-- Контейнер для прокрутки карточек -->
+            <div class="cards-wrapper" id="cardsWrapper">
+                <!-- Карточка 1 -->
+                <div th:each="product : ${products}">
+                    <a th:href="@{/description/{id}(id=${product.id})}" th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none;">
                         <div class="card card-scroll mx-2">
                             <img src="/img/Беседка.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1" th:src="@{/images/{id}(id=${image.id})}">
                             <div class="card-body">
@@ -296,237 +297,238 @@
                                 </div>
                             </div>
                         </div>
+                    </a>
+                </div>
+                <!-- Кнопка «вправо» -->
+                <button class="scroll-btn next-btn" aria-label="Прокрутить вправо" style="background-color: red">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Прокрутка-->
+    <!-- Карточки товара -->
+    <br>
+    <div class="container-fluid text-center">
+        <h1 class="Katalog" style="font-weight: 800">
+            Каталог художественной ковки
+        </h1>
+    </div>
+    <div class="container my-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+            <div class="col">
+                <a href="/VorotaKatalog" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Ворота.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ ВОРОТА</h5>
+                        </div>
+                    </div>
                 </a>
             </div>
-            <!-- Кнопка «вправо» -->
-            <button class="scroll-btn next-btn" aria-label="Прокрутить вправо" style="background-color: red">
-                <i class="bi bi-chevron-right"></i>
+            <div class="col">
+                <a href="/KalitkaKatalog" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Калитка.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ КАЛИТКИ</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/ZaborKatalog" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Заборы.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ ЗАБОРЫ</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/PerilaKatalog" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Перила.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ ПЕРИЛА</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/ReshotkaKatalog" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Решетки.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ РЕШЕТКИ</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/BesedkaKatalog" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Беседка.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ БЕСЕДКИ</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/KaheliKatalog" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Качели.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px;  font-weight: 500">КОВАНЫЕ КАЧЕЛИ</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/MostiKatalog" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Мосты.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px;  font-weight: 500">КОВАНЫЕ МОСТЫ</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-center">
+        <a href="/Katalog">
+            <button type="button" class="btn btn-outline-danger custom-btn" style="width: 300px; font-size: 25px; font-weight: 700">
+                Посмотреть весь каталог
             </button>
-        </div>
-    </div>
-</div>
-<!-- Прокрутка-->
-<!-- Карточки товара -->
-<br>
-<div class="container-fluid text-center">
-   <h1 class="Katalog" style="font-weight: 800">
-       Каталог художественной ковки
-   </h1>
-</div>
-<div class="container my-4">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
-        <div class="col">
-            <a href="/VorotaKatalog" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Ворота.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ ВОРОТА</h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col">
-            <a href="/KalitkaKatalog" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Калитка.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ КАЛИТКИ</h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col">
-            <a href="/ZaborKatalog" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Заборы.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ ЗАБОРЫ</h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col">
-            <a href="/PerilaKatalog" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Перила.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ ПЕРИЛА</h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col">
-            <a href="/ReshotkaKatalog" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Решетки.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ РЕШЕТКИ</h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col">
-            <a href="/BesedkaKatalog" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Беседка.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px; font-weight: 500">КОВАНЫЕ БЕСЕДКИ</h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col">
-            <a href="/KaheliKatalog" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Качели.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px;  font-weight: 500">КОВАНЫЕ КАЧЕЛИ</h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col">
-            <a href="/MostiKatalog" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Мосты.jfif" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate" style="text-align: center; font-size: 20px;  font-weight: 500">КОВАНЫЕ МОСТЫ</h5>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="container-fluid text-center">
-    <a href="/Katalog">
-        <button type="button" class="btn btn-outline-danger custom-btn" style="width: 300px; font-size: 25px; font-weight: 700">
-            Посмотреть весь каталог
-        </button>
-    </a>
-
-</div>
-<!-- Карточки товара -->
-<!-- Наше преимущество -->
-<br>
-<div class="container-fluid text-center">
-    <h1 class="Katalog" style="font-weight: 800">
-        Наши преимущества
-    </h1>
-</div>
-<br>
-<div class="container text-center">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
-        <div class="col">
-            <img src="/img/под%20ключ.png" alt="Bootstrap" width="120" height="120">
-            <br>
-            <h1 style="font-weight: 700; font-size: 20px;">Работаем под ключ от эскиза до монтажа</h1>
-            <h3 style="font-weight: 500; font-size: 15px;">
-                В наши возможности входит полный спектр производства<br>
-                и услуг, начиная от проектирования изделия
-                до конечного монтажа.
-            </h3>
-        </div>
-        <div class="col">
-            <img src="/img/индивидуальный%20дизайн.png" alt="Bootstrap" width="120" height="120">
-            <br>
-            <h1 style="font-weight: 700; font-size: 20px;">Эксклюзивные изделия по индивидуальному дизайну</h1>
-            <h3 style="font-weight: 500; font-size: 15px;">
-                Мы можем предложить большой простор для выбора, от экономичных бюджетных вариантов,
-                до премиальных изделий. Так же можем похвастаться самым богатым выбором среди конкурентов.
-            </h3>
-        </div>
-        <div class="col">
-            <img src="/img/надежность.png" alt="Bootstrap" width="120" height="120">
-            <br>
-            <h1 style="font-weight: 700; font-size: 20px;">Надёжность и долговечность продукции</h1>
-            <h3 style="font-weight: 500; font-size: 15px;">
-                Мы не используем тонкостенные трубы, покраска по ГОСТам и техническим требованиям.
-                Используем высокотехнологичные и сертифицированные покрытия, растворители и ингибиторы.
-            </h3>
-        </div>
-        <div class="col">
-            <img src="/img/гарантия%20качества.png" alt="Bootstrap" width="120" height="120">
-            <br>
-            <h1 style="font-weight: 700; font-size: 20px;">Гарантия качества</h1>
-            <h3 style="font-weight: 500; font-size: 15px;">
-                Мы верны принципам сохранения качества выпускаемой продукции, мы действительно дорожим своей
-                репутацией лидера на рынке художественной ковки.
-            </h3>
-        </div>
-        <div class="col">
-            <img src="/img/производство.png" alt="Bootstrap" width="120" height="120">
-            <br>
-            <h1 style="font-weight: 700; font-size: 20px;">Заводское производство</h1>
-            <h3 style="font-weight: 500; font-size: 15px;">
-                Сотрудничать с производителем, который более 10 лет на рынке, всегда выгоднее, чем с
-                посредниками.
-            </h3>
-        </div>
-        <div class="col">
-            <img src="/img/обслуживание.png" alt="Bootstrap" width="120" height="120">
-            <br>
-            <h1 style="font-weight: 700; font-size: 20px;">Сервисное обслуживание</h1>
-            <h3 style="font-weight: 500; font-size: 15px;">
-                Заказать изделие по своему эскизу, быстро получить заказ, тщательная упаковка и аккуратная
-                погрузка, вы можете изменить технические характеристики нашей продукции или добавить что-то от себя.
-            </h3>
-        </div>
+        </a>
 
     </div>
-</div>
-<!-- Наше преимущество -->
-<!-- О компании -->
-<br>
-<div class="container-fluid text-center">
+    <!-- Карточки товара -->
+    <!-- Наше преимущество -->
+    <br>
+    <div class="container-fluid text-center">
+        <h1 class="Katalog" style="font-weight: 800">
+            Наши преимущества
+        </h1>
+    </div>
+    <br>
+    <div class="container text-center">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+            <div class="col">
+                <img src="/img/под%20ключ.png" alt="Bootstrap" width="120" height="120">
+                <br>
+                <h1 style="font-weight: 700; font-size: 20px;">Работаем под ключ от эскиза до монтажа</h1>
+                <h3 style="font-weight: 500; font-size: 15px;">
+                    В наши возможности входит полный спектр производства<br>
+                    и услуг, начиная от проектирования изделия
+                    до конечного монтажа.
+                </h3>
+            </div>
+            <div class="col">
+                <img src="/img/индивидуальный%20дизайн.png" alt="Bootstrap" width="120" height="120">
+                <br>
+                <h1 style="font-weight: 700; font-size: 20px;">Эксклюзивные изделия по индивидуальному дизайну</h1>
+                <h3 style="font-weight: 500; font-size: 15px;">
+                    Мы можем предложить большой простор для выбора, от экономичных бюджетных вариантов,
+                    до премиальных изделий. Так же можем похвастаться самым богатым выбором среди конкурентов.
+                </h3>
+            </div>
+            <div class="col">
+                <img src="/img/надежность.png" alt="Bootstrap" width="120" height="120">
+                <br>
+                <h1 style="font-weight: 700; font-size: 20px;">Надёжность и долговечность продукции</h1>
+                <h3 style="font-weight: 500; font-size: 15px;">
+                    Мы не используем тонкостенные трубы, покраска по ГОСТам и техническим требованиям.
+                    Используем высокотехнологичные и сертифицированные покрытия, растворители и ингибиторы.
+                </h3>
+            </div>
+            <div class="col">
+                <img src="/img/гарантия%20качества.png" alt="Bootstrap" width="120" height="120">
+                <br>
+                <h1 style="font-weight: 700; font-size: 20px;">Гарантия качества</h1>
+                <h3 style="font-weight: 500; font-size: 15px;">
+                    Мы верны принципам сохранения качества выпускаемой продукции, мы действительно дорожим своей
+                    репутацией лидера на рынке художественной ковки.
+                </h3>
+            </div>
+            <div class="col">
+                <img src="/img/производство.png" alt="Bootstrap" width="120" height="120">
+                <br>
+                <h1 style="font-weight: 700; font-size: 20px;">Заводское производство</h1>
+                <h3 style="font-weight: 500; font-size: 15px;">
+                    Сотрудничать с производителем, который более 10 лет на рынке, всегда выгоднее, чем с
+                    посредниками.
+                </h3>
+            </div>
+            <div class="col">
+                <img src="/img/обслуживание.png" alt="Bootstrap" width="120" height="120">
+                <br>
+                <h1 style="font-weight: 700; font-size: 20px;">Сервисное обслуживание</h1>
+                <h3 style="font-weight: 500; font-size: 15px;">
+                    Заказать изделие по своему эскизу, быстро получить заказ, тщательная упаковка и аккуратная
+                    погрузка, вы можете изменить технические характеристики нашей продукции или добавить что-то от себя.
+                </h3>
+            </div>
+
+        </div>
+    </div>
+    <!-- Наше преимущество -->
+    <!-- О компании -->
+    <br>
+    <div class="container-fluid text-center">
         <h1 class="Katalog" style="font-weight: 800" >
             О компании
         </h1>
-</div>
+    </div>
 
-<div class="container-fluid text"   >
-    <div >
+    <div class="container-fluid text"   >
+        <div >
 
-        <p  style="font-size: 18px">
-            Наша компания была основана в 2011 году. За более чем пятнадцатилетний срок мы не только заняли прочное место на рынке,
-            но и превратились в полноценное производство, оснащённое современным высокотехнологичным оборудованием.
-            Главное богатство нашей компании — это умелые и квалифицированные мастера, которые превращают металл в
-            настоящие произведения искусства.
-        </p>
+            <p  style="font-size: 18px">
+                Наша компания была основана в 2011 году. За более чем пятнадцатилетний срок мы не только заняли прочное место на рынке,
+                но и превратились в полноценное производство, оснащённое современным высокотехнологичным оборудованием.
+                Главное богатство нашей компании — это умелые и квалифицированные мастера, которые превращают металл в
+                настоящие произведения искусства.
+            </p>
 
-        <p  style="font-size: 18px">
-            «Престиж-ковка» предлагает потребителям широчайший спектр услуг в сфере художественной ковки металла.
-            В наши возможности входит полный цикл производства: от лазерной резки, гибки и сварки заготовок до
-            порошковой покраски готовых изделий и профессионального монтажа. Мы берёмся за заказы любой сложности,
-            гарантируя высокое качество на каждом этапе.
-        </p>
+            <p  style="font-size: 18px">
+                «Престиж-ковка» предлагает потребителям широчайший спектр услуг в сфере художественной ковки металла.
+                В наши возможности входит полный цикл производства: от лазерной резки, гибки и сварки заготовок до
+                порошковой покраски готовых изделий и профессионального монтажа. Мы берёмся за заказы любой сложности,
+                гарантируя высокое качество на каждом этапе.
+            </p>
 
-        <h3 style="font-size: 23px">Почему выбирают нас?</h3>
+            <h3 style="font-size: 23px">Почему выбирают нас?</h3>
 
-        <ul  style="font-size: 18px">
-            <li class="">
-                <span style="color: #c60909; font-size: 18px">Честные цены.</span> Реальная стоимость без завышений и скрытых комиссий.
-            </li>
-            <li class="">
-                <span  style="color: #c60909; font-size: 18px" >Удобный сервис.</span> Вы можете оформить покупку, не выходя из дома или офиса. Наши менеджеры оперативно согласуют все детали заказа.
-            </li>
-            <li class="">
-                <span  style="color: #c60909; font-size: 18px">Надёжность.</span> Мы даём гарантию на все товары, обеспечиваем качественную доставку и бережный монтаж.
-            </li>
-        </ul>
+            <ul  style="font-size: 18px">
+                <li class="">
+                    <span style="color: #c60909; font-size: 18px">Честные цены.</span> Реальная стоимость без завышений и скрытых комиссий.
+                </li>
+                <li class="">
+                    <span  style="color: #c60909; font-size: 18px" >Удобный сервис.</span> Вы можете оформить покупку, не выходя из дома или офиса. Наши менеджеры оперативно согласуют все детали заказа.
+                </li>
+                <li class="">
+                    <span  style="color: #c60909; font-size: 18px">Надёжность.</span> Мы даём гарантию на все товары, обеспечиваем качественную доставку и бережный монтаж.
+                </li>
+            </ul>
 
-        <p  style="font-size: 18px">
-            Мы всегда открыты к диалогу. Если у вас есть пожелания или предложения,
-            мы с благодарностью примем их во внимание. Ваше мнение помогает нам становиться лучше!
-        </p>
+            <p  style="font-size: 18px">
+                Мы всегда открыты к диалогу. Если у вас есть пожелания или предложения,
+                мы с благодарностью примем их во внимание. Ваше мнение помогает нам становиться лучше!
+            </p>
 
-        <div class="">
-            <h4 style="font-size: 20px">Свяжитесь с нами:</h4>
-            <p>ЭЛЕКТРОННАЯ ПОЧТА: <a style="color: #c60909" href="mailto:prestige_forging83@mail.ru" class="email-link">prestige_forging83@mail.ru</a></p>
+            <div class="">
+                <h4 style="font-size: 20px">Свяжитесь с нами:</h4>
+                <p>ЭЛЕКТРОННАЯ ПОЧТА: <a style="color: #c60909" href="mailto:prestige_forging83@mail.ru" class="email-link">prestige_forging83@mail.ru</a></p>
+            </div>
         </div>
     </div>
+    <br>
+    <!-- О компании -->
 </div>
-<br>
-<!-- О компании -->
 <!-- Footer -->
 <footer class="bg-dark text-white py-5">
     <!-- Section: Social media -->

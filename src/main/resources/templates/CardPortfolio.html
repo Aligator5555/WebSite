@@ -224,47 +224,49 @@
         </div>
     </div>
 </nav>
-<!-- Карточка товара -->
-<!-- Карточка товара -->
-<br>
-<div class="container-fluid py-5 bg-light" th:object="${portfolios.id}">
-    <div class="row align-items-center g-5"  >
-        <a th:href="@{/portfolio/delete/{id}(id=${portfolios.id})}" sec:authorize="hasRole('ROLE_ADMIN')"
-           onclick="return confirm('Вы уверены, что хотите удалить этот продукт?');">
-            <h3>Удалить -<img src="/img/Удалить.png"  width="40" height="40" alt="Акция" ></h3>
-        </a>
-        <!-- Фотография товара слева -->
-        <div class="col-12  d-flex justify-content-center">
-            <div class="product-image-container position-relative overflow-hidden rounded-4 shadow-lg" style="width: 700px; height: 500px;">
-                <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light"
-                     data-mdb-ripple-color="light">
-                    <div id="carouselExample" class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" th:if="${portfolios.images != null and #lists.size(portfolios.images) > 0}">
-                                <img th:src="@{/imagesPortfolio/{id}(id=${portfolios.images[0].id})}" class="d-block w-100" alt="600">
+<div class="fon">
+    <!-- Карточка товара -->
+    <br>
+    <div class="container-fluid py-5 bg-light" th:object="${portfolios.id}">
+        <div class="row align-items-center g-5"  >
+            <a th:href="@{/portfolio/delete/{id}(id=${portfolios.id})}" sec:authorize="hasRole('ROLE_ADMIN')"
+               onclick="return confirm('Вы уверены, что хотите удалить этот продукт?');">
+                <h3>Удалить -<img src="/img/Удалить.png"  width="40" height="40" alt="Акция" ></h3>
+            </a>
+            <!-- Фотография товара слева -->
+            <div class="col-12  d-flex justify-content-center">
+                <div class="product-image-container position-relative overflow-hidden rounded-4 shadow-lg" style="width: 700px; height: 500px;">
+                    <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light"
+                         data-mdb-ripple-color="light">
+                        <div id="carouselExample" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" th:if="${portfolios.images != null and #lists.size(portfolios.images) > 0}">
+                                    <img th:src="@{/imagesPortfolio/{id}(id=${portfolios.images[0].id})}" class="d-block w-100" alt="600">
+                                </div>
+                                <div class="carousel-item" th:if="${portfolios.images != null and #lists.size(portfolios.images) > 1}">
+                                    <img th:src="@{/imagesPortfolio/{id}(id=${portfolios.images[1].id})}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item" th:if="${portfolios.images != null and #lists.size(portfolios.images) > 2}">
+                                    <img th:src="@{/imagesPortfolio/{id}(id=${portfolios.images[2].id})}" class="d-block w-100" alt="...">
+                                </div>
                             </div>
-                            <div class="carousel-item" th:if="${portfolios.images != null and #lists.size(portfolios.images) > 1}">
-                                <img th:src="@{/imagesPortfolio/{id}(id=${portfolios.images[1].id})}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" th:if="${portfolios.images != null and #lists.size(portfolios.images) > 2}">
-                                <img th:src="@{/imagesPortfolio/{id}(id=${portfolios.images[2].id})}" class="d-block w-100" alt="...">
-                            </div>
+                            <button class="carousel-control-prev btn-red" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" style="background-color: rgba(200,35,51,0.67); border-radius: 100%;" aria-hidden="true"></span>
+                                <span class="visually-hidden" >Предыдущий</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" style="background-color: rgba(200,35,51,0.67); border-radius: 100%;" aria-hidden="true"></span>
+                                <span class="visually-hidden">Следующий</span>
+                            </button>
                         </div>
-                        <button class="carousel-control-prev btn-red" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" style="background-color: rgba(200,35,51,0.67); border-radius: 100%;" aria-hidden="true"></span>
-                            <span class="visually-hidden" >Предыдущий</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" style="background-color: rgba(200,35,51,0.67); border-radius: 100%;" aria-hidden="true"></span>
-                            <span class="visually-hidden">Следующий</span>
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Карточки товара -->
 </div>
-<!-- Карточки товара -->
+
 <!-- Footer -->
 <footer class="bg-dark text-white py-5">
     <!-- Section: Social media -->

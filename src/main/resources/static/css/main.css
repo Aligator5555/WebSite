@@ -1,3 +1,16 @@
+.fon {
+    background-image: url('/img/Fon.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+
+}
+
 
 /* login */
 .rounded-circle {
@@ -231,14 +244,21 @@ body{
 .custom-btn:active {
     transform: translateY(0);
 }
-
 .card-hover-border {
-    border: 10px solid transparent;
-    transition: border-color 1.5s ease;
+    border: 2px solid #e0e0e0; /* изначальная тонкая серая рамка */
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* базовая тень */
+    overflow: hidden;
+    position: relative;
+    height: 240px; /* фиксированная высота карточки */
 }
 
 .card-hover-border:hover {
-    border-color: red /* синий */
+    border-width: 10px; /* толщина рамки при наведении — 4 px */
+    border-color: #ff4405; /* красный цвет рамки */
+    box-shadow: 0 12px 25px rgba(225, 64, 5, 0.2); /* усиленная тень при наведении */
 }
 /* Карточка товара */
 

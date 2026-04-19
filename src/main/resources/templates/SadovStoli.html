@@ -223,54 +223,56 @@
         </div>
     </div>
 </nav>
-<!-- Карточки товара -->
-<br>
-<div class="container-fluid text-center">
-    <h1 class="Katalog" style="font-weight: 800">
-        САДОВЫЕ СТОЛЫ
-    </h1>
-</div>
-<div class="container my-4" >
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        <div class="col" th:each="product : ${products}">
-            <a th:href="@{/description/{id}(id=${product.id})}" th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none">
-                <div class="card h-70 card-hover-border">
-                    <img src="/img/Ворота.jfif" class="card-img-top img-fluid" th:src="@{/images/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                    <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
-                        <span class="card-title-text" th:text="${product.title}"></span>
-                    </h5>
-                    <h5 class="card-title flex-grow-1" th:text="${product.price}" style="text-align: center; font-size: 15px; font-weight: 700; color: rgba(255,0,0,0.59)">
-                        50 000 руб
-                    </h5>
-                </div>
-            </a>
+<div class="fon">
+    <!-- Карточки товара -->
+    <br>
+    <div class="container-fluid text-center">
+        <h1 class="Katalog" style="font-weight: 800">
+            САДОВЫЕ СТОЛЫ
+        </h1>
+    </div>
+    <div class="container my-4" >
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <div class="col" th:each="product : ${products}">
+                <a th:href="@{/description/{id}(id=${product.id})}" th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Ворота.jfif" class="card-img-top img-fluid" th:src="@{/images/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
+                            <span class="card-title-text" th:text="${product.title}"></span>
+                        </h5>
+                        <h5 class="card-title flex-grow-1" th:text="${product.price}" style="text-align: center; font-size: 15px; font-weight: 700; color: rgba(255,0,0,0.59)">
+                            50 000 руб
+                        </h5>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-<!-- Карточки товара -->
-<div class="container-fluid text-left">
-    <h1  style="font-weight: 800; font-size: 25px; margin-left: 15px">
-        Заказать садовые столы
-    </h1>
-</div>
-<div class="container-fluid text-left">
-    <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px">
-        Мебель с элементами ковки завоевывает все большее число поклонников среди владельцев загородных участков. Кованые садовые столы, скамейки, фонари и другие элементы моментально преображает облик сада, придавая ему неповторимый колорит. При этом именно стол обычно становится центром, вокруг которого выстраивается общий дизайн.
-        <br>
-        <br>
-    </h1>
-</div>
-<div class="container-fluid text-left">
-    <h1  style="font-weight: 800; font-size: 15px; margin-left: 12px">
-        Производственная компания «Престиж-ковка» предлагает изготовление садовых столов с уникальным дизайном, а также по стандартным эскизам.
-    </h1>
-</div>
-<div class="container-fluid text-left">
-    <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px">
-        Доставить продукцию мы можем в любой город России, используя для этого налаженную сеть логистики.
-        <br>
-        <br>
-    </h1>
+    <!-- Карточки товара -->
+    <div class="container-fluid text-left">
+        <h1  style="font-weight: 800; font-size: 25px; margin-left: 15px">
+            Заказать садовые столы
+        </h1>
+    </div>
+    <div class="container-fluid text-left">
+        <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px">
+            Мебель с элементами ковки завоевывает все большее число поклонников среди владельцев загородных участков. Кованые садовые столы, скамейки, фонари и другие элементы моментально преображает облик сада, придавая ему неповторимый колорит. При этом именно стол обычно становится центром, вокруг которого выстраивается общий дизайн.
+            <br>
+            <br>
+        </h1>
+    </div>
+    <div class="container-fluid text-left">
+        <h1  style="font-weight: 800; font-size: 15px; margin-left: 12px">
+            Производственная компания «Престиж-ковка» предлагает изготовление садовых столов с уникальным дизайном, а также по стандартным эскизам.
+        </h1>
+    </div>
+    <div class="container-fluid text-left">
+        <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px">
+            Доставить продукцию мы можем в любой город России, используя для этого налаженную сеть логистики.
+            <br>
+            <br>
+        </h1>
+    </div>
 </div>
 <!-- Footer -->
 <footer class="bg-dark text-white py-5">
