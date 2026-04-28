@@ -42,7 +42,8 @@ public class ProductService {
     public void saveProduct(Product product,
                             ProductCategory productCategory,
                             MultipartFile file1,
-                            MultipartFile file2, MultipartFile file3) throws IOException {
+                            MultipartFile file2,
+                            MultipartFile file3) throws IOException {
         Image image1;
         Image image2;
         Image image3;

@@ -228,196 +228,42 @@
     <br>
     <div class="container-fluid text-center">
         <h1 class="Katalog" style="font-weight: 800">
-            КОВАНЫЕ РИТУАЛЬНЫЕ ИЗДЕЛИЯ
+            РИТУАЛНЫЕ СКАМЕЙКИ
         </h1>
     </div>
-    <br>
-    <br>
-    <div class="container-fluid" style="margin-left: 100px">
-        <div class="row gap-1">
-            <div class="col-auto">
-                <a href="/RitualOgragdenia">
-                    <button type="button" class="btn btn-outline-danger custom-btn" style="width: 200px; font-size: 12px; font-weight: 700;">
-                        КОВАНЫЕ ОГРАДЫ
-                    </button>
-                </a>
-            </div>
-            <div class="col-auto">
-                <a href="/RitualKresti">
-                    <button type="button" class="btn btn-outline-danger custom-btn" style="width: 200px; font-size: 12px; font-weight: 700;">
-                        КОВАНЫЕ КРЕСТЫ
-                    </button>
-                </a>
-            </div>
-            <div class="col-auto">
-                <a href="/ScameikaRitual">
-                    <button type="button" class="btn btn-outline-danger custom-btn" style="width: 200px; font-size: 12px; font-weight: 700;">
-                        СКАМЕЙКИ РИТУАЛЬНЫЕ
-                    </button>
-                </a>
-            </div>
-            <div class="col-auto">
-                <a href="/RitualStoli">
-                    <button type="button" class="btn btn-outline-danger custom-btn" style="width: 200px; font-size: 12px; font-weight: 700;">
-                        РИТУАЛЬНЫЕ СТОЛЫ
-                    </button>
+    <div class="container my-4" >
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <div class="col" th:each="product : ${products}">
+                <a th:href="@{/description/{id}(id=${product.id})}"  th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none">
+                    <div class="card h-70 card-hover-border">
+                        <img src="/img/Ворота.jfif" class="card-img-top img-fluid" th:src="@{/images/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
+                        <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
+                            <span class="card-title-text" th:text="${product.title}"></span>
+                        </h5>
+                        <h5 class="card-title flex-grow-1" th:text="${product.price}" style="text-align: center; font-size: 15px; font-weight: 700; color: rgba(255,0,0,0.59)">
+                            50 000 руб
+                        </h5>
+                    </div>
                 </a>
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <div class="container-fluid text-start">
-        <h1 class="Katalog" style="font-weight: 800; font-size: 25px; margin-left: 100px">
-            Кованые ограды
-        </h1>
-        <div class="container my-4" >
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                <div class="col" th:each="product, productStat : ${products1}" th:if="${productStat.index < 4}">
-                    <a th:href="@{/description/{id}(id=${product.id})}" th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none">
-                        <div class="card h-70 card-hover-border">
-                            <img src="/img/Ворота.jfif" class="card-img-top img-fluid" th:src="@{/images/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                            <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
-                                <span class="card-title-text" th:text="${product.title}"></span>
-                            </h5>
-                            <h5 class="card-title flex-grow-1" th:text="${product.price}" style="text-align: center; font-size: 15px; font-weight: 700; color: rgba(255,0,0,0.59)">
-                                50 000 руб
-                            </h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid text-center">
-        <a href="/RitualOgragdenia">
-            <button type="button" class="btn btn-outline-danger custom-btn" style="width: 240px; font-size: 20px; font-weight: 700;border-radius: 30px">
-                Показать все -->
-            </button>
-        </a>
-    </div>
-    <br>
-    <br>
-    <div class="container-fluid text-start">
-        <h1 class="Katalog" style="font-weight: 800; font-size: 25px; margin-left: 100px">
-            Кованые кресты
-        </h1>
-        <div class="container my-4" >
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                <div class="col"th:each="product, productStat : ${products2}" th:if="${productStat.index < 4}">
-                    <a th:href="@{/description/{id}(id=${product.id})}" th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none">
-                        <div class="card h-70 card-hover-border">
-                            <img src="/img/Ворота.jfif" class="card-img-top img-fluid" th:src="@{/images/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                            <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
-                                <span class="card-title-text" th:text="${product.title}"></span>
-                            </h5>
-                            <h5 class="card-title flex-grow-1" th:text="${product.price}" style="text-align: center; font-size: 15px; font-weight: 700; color: rgba(255,0,0,0.59)">
-                                50 000 руб
-                            </h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid text-center">
-        <a href="/RitualKresti">
-            <button type="button" class="btn btn-outline-danger custom-btn" style="width: 240px; font-size: 20px; font-weight: 700;border-radius: 30px">
-                Показать все -->
-            </button>
-        </a>
-    </div>
-    <br>
-    <br>
-    <div class="container-fluid text-start">
-        <h1 class="Katalog" style="font-weight: 800; font-size: 25px; margin-left: 100px">
-            Скамейки ритуальные
-        </h1>
-        <div class="container my-4" >
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                <div class="col"th:each="product, productStat : ${products3}" th:if="${productStat.index < 4}">
-                    <a th:href="@{/description/{id}(id=${product.id})}" th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none">
-                        <div class="card h-70 card-hover-border">
-                            <img src="/img/Ворота.jfif" class="card-img-top img-fluid" th:src="@{/images/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                            <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
-                                <span class="card-title-text" th:text="${product.title}"></span>
-                            </h5>
-                            <h5 class="card-title flex-grow-1" th:text="${product.price}" style="text-align: center; font-size: 15px; font-weight: 700; color: rgba(255,0,0,0.59)">
-                                50 000 руб
-                            </h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid text-center">
-        <a href="/ScameikaRitual">
-            <button type="button" class="btn btn-outline-danger custom-btn" style="width: 240px; font-size: 20px; font-weight: 700;border-radius: 30px">
-                Показать все -->
-            </button>
-        </a>
-    </div>
-    <br>
-    <br>
-    <div class="container-fluid text-start">
-        <h1 class="Katalog" style="font-weight: 800; font-size: 25px; margin-left: 100px">
-            Ритуальные столы
-        </h1>
-        <div class="container my-4" >
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                <div class="col"th:each="product, productStat : ${products4}" th:if="${productStat.index < 4}">
-                    <a th:href="@{/description/{id}(id=${product.id})}" th:each="image : ${product.images}" th:if="${imageStat.index == 0}" style="text-decoration: none">
-                        <div class="card h-70 card-hover-border">
-                            <img src="/img/Ворота.jfif" class="card-img-top img-fluid" th:src="@{/images/{id}(id=${image.id})}" style="height: 180px; object-fit: cover;" alt="Товар 1">
-                            <h5 class="card-title flex-grow-1" style="text-align: center; font-weight: 500">
-                                <span class="card-title-text" th:text="${product.title}"></span>
-                            </h5>
-                            <h5 class="card-title flex-grow-1" th:text="${product.price}" style="text-align: center; font-size: 15px; font-weight: 700; color: rgba(255,0,0,0.59)">
-                                50 000 руб
-                            </h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid text-center">
-        <a href="/RitualStoli">
-            <button type="button" class="btn btn-outline-danger custom-btn" style="width: 240px; font-size: 20px; font-weight: 700;border-radius: 30px">
-                Показать все -->
-            </button>
-        </a>
-    </div>
-    <br>
-    <br>
     <!-- Карточки товара -->
     <div class="container-fluid text-left">
         <h1  style="font-weight: 800; font-size: 25px; margin-left: 15px">
-            Заказать кованые ритуальные изделия
+            Заказать скамейки ритуальные
         </h1>
     </div>
     <div class="container-fluid text-left">
         <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px">
-            Каждому из нас нужна память об ушедшем и место, где легче всего вспомнить этого человека. Поэтому мы стараемся облагородить могилу, украсить ее ритуальными оградами, лавочками и другими элементами. Когда все они выполнены качественно и в едином стиле, могила выглядит ухоженной, появляется атмосфера покоя и уединенности.
-
-            Компания «Протект Ковка» предлагает ассортимент готовых ритуальных изделий – надгробий, оград, крестов на могилу и многое другое. В продаже уже имеются готовые варианты, однако Вы можете заказать ковку по индивидуальным чертежам, что сделает поможет сделать памятник уникальным. Ограждения имеют надежный фундамент, благодаря чему они сохраняют свою геометрию в течение долгих лет.
-
-            Традиционно кованая ограда на могилу устанавливается через год после погребения, так как к этому моменту земля приминается и оседает, что обеспечивает устойчивость конструкции. Срок службы ритуальных кованых изделий (надгробий, крестов на могилу) составляет порядка 50 лет. Долговечность продукции обеспечивается благодаря прочности материала и антикоррозийной защите, которую обеспечивает современная краска.
+            Место упокоения близких — это пространство для размышлений и воспоминаний. Компания «Престиж Ковка» создаёт ритуальные скамейки, которые станут достойным элементом благоустройства и позволят с комфортом почтить память ушедших.
             <br>
             <br>
         </h1>
     </div>
     <div class="container-fluid text-left">
         <h1  style="font-weight: 800; font-size: 15px; margin-left: 12px">
-            Производственная компания «Престиж-ковка» предлагает изготовление кованых ритуальных изделий с уникальным дизайном, а также по стандартным эскизам.
-        </h1>
-    </div>
-    <div class="container-fluid text-left">
-        <h1  style="font-weight: 500; font-size: 15px; margin-left: 15px">
-            Доставить продукцию мы можем в любой город России, используя для этого налаженную сеть логистики.
-            <br>
-            <br>
+            Компания «Престиж Ковка» производит ритуальные скамейки с использованием передовых технологий и традиционных методов художественной ковки.
         </h1>
     </div>
 </div>
@@ -434,14 +280,11 @@
             <!-- Right -->
             <div class="social-icons d-flex justify-content-center align-items-center gap-4 p-3">
                 <a class="nav-link ekb " aria-current="page">
-                    <a href="https://t.me/+79065904910" style="text-decoration: none;">
+                    <a href="https://t.me/username" style="text-decoration: none;">
                         <img src="/img/телеграмм.png" class="mes" alt="Логотип"  >
                     </a>
                     <a href="https://mail.ru/" style="text-decoration: none;">
                         <img src="/img/Почта.png" class="mes1" alt="Логотип" >
-                    </a>
-                    <a href="https://max.ru/u/f9LHodD0cOLz7SWBvbyELbSsheLfWm3WuVoypxhpOf6VVCM0IEmZ6Pxm3RI" style="text-decoration: none;">
-                        <img src="/img/Max.png" class="mes1" alt="Логотип" >
                     </a>
                 </a>
             </div>

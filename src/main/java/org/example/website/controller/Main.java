@@ -74,6 +74,40 @@ public class Main {
         return "Contacts";
     }
 
+    @GetMapping("/RitualStoli")
+    public String ritualStoli(Model model) {
+        ProductCategory category = ProductCategory.RITUALSTOLI;
+        List<Product> products = productService.getProductsByCategory(category);
+        model.addAttribute("products", products);
+        model.addAttribute("category", category);
+        return "RitualStoli";
+    }
+    @GetMapping("/ScameikaRitual")
+    public String scameikaRitual(Model model) {
+        ProductCategory category = ProductCategory.RITUALSKAMEIKI;
+        List<Product> products = productService.getProductsByCategory(category);
+        model.addAttribute("products", products);
+        model.addAttribute("category", category);
+        return "ScameikaRitual";
+    }
+
+    @GetMapping("/RitualOgragdenia")
+    public String ritualOgragdenia(Model model) {
+        ProductCategory category = ProductCategory.RITUALNIAIZDELIA;
+        List<Product> products = productService.getProductsByCategory(category);
+        model.addAttribute("products", products);
+        model.addAttribute("category", category);
+        return "RitualOgragdenia";
+    }
+    @GetMapping("/RitualKresti")
+    public String ritualKresti(Model model) {
+        ProductCategory category = ProductCategory.RITUALKRESTI;
+        List<Product> products = productService.getProductsByCategory(category);
+        model.addAttribute("products", products);
+        model.addAttribute("category", category);
+        return "RitualKresti";
+    }
+
     @GetMapping("/SaleKatalog")
     public String saleKatalog(Model model) {
         ProductCategory category = ProductCategory.SALEKATALOG;
@@ -247,10 +281,32 @@ public class Main {
     }
     @GetMapping("/RitualIzdeliaKatalog")
     public String ritualIzdeliaKatalog(Model model) {
-        ProductCategory category = ProductCategory.RITUALNIAIZDELIA;
-        List<Product> products = productService.getProductsByCategory(category);
-        model.addAttribute("products", products);
-        model.addAttribute("category", category);
+        ProductCategory category1 = ProductCategory.RITUALNIAIZDELIA;
+        ProductCategory category2 = ProductCategory.RITUALKRESTI;
+        ProductCategory category3 = ProductCategory.RITUALSKAMEIKI;
+        ProductCategory category4 = ProductCategory.RITUALSTOLI;
+
+
+        // Получаем продукты для первой категории
+        List<Product> productsForCategory1 = productService.getProductsByCategory(category1);
+        model.addAttribute("products1", productsForCategory1);
+        model.addAttribute("category1", category1);
+
+        // Получаем продукты для второй категории
+        List<Product> productsForCategory2 = productService.getProductsByCategory(category2);
+        model.addAttribute("products2", productsForCategory2);
+        model.addAttribute("category2", category2);
+
+        // Получаем продукты для третьей категории
+        List<Product> productsForCategory3 = productService.getProductsByCategory(category3);
+        model.addAttribute("products3", productsForCategory3);
+        model.addAttribute("category3", category3);
+
+        // Получаем продукты для четвертой категории
+        List<Product> productsForCategory4 = productService.getProductsByCategory(category4);
+        model.addAttribute("products4", productsForCategory4);
+        model.addAttribute("category4", category4);
+
         return "RitualIzdeliaKatalog";
     }
     @GetMapping("/KozirkiiNavesiKatalog")
